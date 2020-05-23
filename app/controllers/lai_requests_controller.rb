@@ -1,0 +1,3 @@
+class LaiRequestsController < ApplicationController
+
+end
