@@ -1,6 +1,6 @@
 class PublicDataController < ApplicationController
-	skip_before_action :authenticate_user!, only: [:index]
-	before_action :find_public_data, only [:show]
+	skip_before_action :authenticate_user!, only: [:index, :show]
+	before_action :find_public_data, only: [:show]
 
 	def index
 		@public_data = PublicDatum.all.order(created_at: :desc)
@@ -10,16 +10,16 @@ class PublicDataController < ApplicationController
 	end
 
 	def new
-		@public_data = PublicDatum.new
+		@public_datum = PublicDatum.new
 		authorize @public_datum
 	end
 
 	def create
-		@public_data = PublicDatum.new(public_data_params)
-		@public_data.user = current_user
+		@public_datum = PublicDatum.new(public_datum_params)
+		@public_datum.user = current_user
 		authorize @public_datum
-		if @public_data.save
-			redirect_to_public_datum_path(@public_data), notice: "Upload Realizado com Sucesso. Obrigado pro tornar o Brasil mais transparente!"
+		if @public_datum.save
+			redirect_to root_path, notice: "Upload Realizado com Sucesso. Obrigado pro tornar o Brasil mais transparente!"
 		else
 			render :new
 		end
@@ -28,10 +28,11 @@ class PublicDataController < ApplicationController
 	private
 
 	def find_public_data
-		@public_data = PublicDatum.find(params[:id])
+		@public_datum = PublicDatum.find(params[:id])
 	end
 
-	def public_data_params
-		params.require(:public_datum).permit(:category, :power, :description, :branch, :city, :state, :name, :format, :level)
+	def public_datum_params
+		params.require(:public_datum).permit(:category, :power, :description, 
+																				 :branch, :city, :state, :name, :format, :level)
 	end
 end

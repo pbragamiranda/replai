@@ -17,7 +17,4 @@ class PublicDatumPolicy < ApplicationPolicy
   def create?
   	true
   end
-
-
-
 end
