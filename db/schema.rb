@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_21_235930) do
+ActiveRecord::Schema.define(version: 2020_05_23_144051) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "city_government_agencies", force: :cascade do |t|
+    t.string "city_name"
+    t.string "website"
+    t.string "email_executive"
+    t.string "twitter_executive"
+    t.string "email_legislative"
+    t.string "twitter_legislative"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "comments", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -28,19 +39,14 @@ ActiveRecord::Schema.define(version: 2020_05_21_235930) do
   create_table "lai_requests", force: :cascade do |t|
     t.text "description"
     t.string "category"
-    t.string "power"
-    t.string "branch"
-    t.string "level"
-    t.string "city"
-    t.string "state"
     t.string "status"
-    t.string "deadline"
     t.string "format"
-    t.string "branch_email"
-    t.string "branch_twitter"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "city_government_agency_id"
+    t.datetime "deadline"
+    t.index ["city_government_agency_id"], name: "index_lai_requests_on_city_government_agency_id"
     t.index ["user_id"], name: "index_lai_requests_on_user_id"
   end
 
@@ -60,6 +66,14 @@ ActiveRecord::Schema.define(version: 2020_05_21_235930) do
     t.index ["user_id"], name: "index_public_data_on_user_id"
   end
 
+  create_table "request_answers", force: :cascade do |t|
+    t.text "content"
+    t.bigint "lai_request_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["lai_request_id"], name: "index_request_answers_on_lai_request_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -74,6 +88,8 @@ ActiveRecord::Schema.define(version: 2020_05_21_235930) do
 
   add_foreign_key "comments", "public_data"
   add_foreign_key "comments", "users"
+  add_foreign_key "lai_requests", "city_government_agencies"
   add_foreign_key "lai_requests", "users"
   add_foreign_key "public_data", "users"
+  add_foreign_key "request_answers", "lai_requests"
 end
