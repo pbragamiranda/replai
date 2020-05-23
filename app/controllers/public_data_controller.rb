@@ -22,7 +22,7 @@ class PublicDataController < ApplicationController
 		if @public_datum.save
 			redirect_to root_path, notice: "Upload Realizado com Sucesso. Obrigado pro tornar o Brasil mais transparente!"
 		else
-			render :new
+			render :new, notice: "Formulário Incompleto. Favor preencher de novo"
 		end
 	end
 
@@ -34,6 +34,7 @@ class PublicDataController < ApplicationController
 
 	def public_datum_params
 		params.require(:public_datum).permit(:category, :power, :description, 
-																				 :branch, :city, :state, :name, :format, :level)
+																				 :branch, :city, :state, :name, 
+																				 :format, :level, :dataset)
 	end
 end
