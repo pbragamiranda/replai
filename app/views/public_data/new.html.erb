@@ -1,17 +1,19 @@
-<h1>Upa os dados e deixe o Rio mais transparente!</h1>
+<div class="container">
+  
+  <h1>Upa os dados e deixe o Rio mais transparente!</h1>
 
-<%= simple_form_for @public_datum do |f| %>
-   <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.input :category %>
-  <%= f.input :level %>
-  <%= f.input :power %>
-  <%= f.input :branch %>
-  <%= f.input :city %>
-  <%= f.input :state %>
-  <%= f.input :format %>
-  <%= f.input :dataset, as: :file %>
-  <%= f.submit "Tornar Dados Público", class: "btn btn-primary"%>
-<% end %>
+    <%= simple_form_for @public_datum do |f| %>
+       <%= f.input :name, label: "Título" %>
+      <%= f.input :description, label: "Descrição" %>
+      <%= f.input :category, label: "Categoria" %>
+      <%= f.input :level, label: "Esfera" %>
+      <%= f.input :power, label: "Poder" %>
+      <%= f.input :branch, label: "Órgão" %>
+      <%= f.input :city , label: "Cidade" %>
+      <%= f.input :state, label: "Estado" %>
+      <%= f.input :format, label: "Formato" %>
+      <%= f.input :dataset, as: :file %>
+      <%= f.submit "Tornar Dados Público", class: "btn btn-primary"%>
+    <% end %>
 
-
+</div>

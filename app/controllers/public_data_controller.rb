@@ -1,5 +1,5 @@
 class PublicDataController < ApplicationController
-	skip_before_action :authenticate_user!, only: [:index, :show]
+	skip_before_action :authenticate_user!, only: [:index]
 	before_action :find_public_data, only: [:show]
 
 	def index
@@ -7,6 +7,7 @@ class PublicDataController < ApplicationController
 	end
 
 	def show
+		authorize @public_datum
 	end
 
 	def new

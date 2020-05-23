@@ -1,1 +1,10 @@
-<h1>Display all public data</h1>
+<div class="container">
+
+	<h1>Pega a visão! Só dado público</h1>
+
+	<% @public_data.each do |dataset| %>
+		<h3><%= dataset.name %></h3>
+		<h3><%= dataset.description %></h3>
+	<% end %>
+
+</div>
