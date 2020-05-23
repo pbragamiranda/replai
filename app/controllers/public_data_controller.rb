@@ -1,4 +1,5 @@
 class PublicDataController < ApplicationController
+	skip_before_action :authenticate_user!, only: [:index]
 	before_action :find_public_data, only [:show]
 
 	def index
@@ -10,11 +11,13 @@ class PublicDataController < ApplicationController
 
 	def new
 		@public_data = PublicDatum.new
+		authorize @public_datum
 	end
 
 	def create
 		@public_data = PublicDatum.new(public_data_params)
 		@public_data.user = current_user
+		authorize @public_datum
 		if @public_data.save
 			redirect_to_public_datum_path(@public_data), notice: "Upload Realizado com Sucesso. Obrigado pro tornar o Brasil mais transparente!"
 		else

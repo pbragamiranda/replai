@@ -1,0 +1,17 @@
+<h1>Upa os dados e deixe o Rio mais transparente!</h1>
+
+<%= simple_form_for @public_data do |f| %>
+   <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :category %>
+  <%= f.input :level %>
+  <%= f.input :power %>
+  <%= f.input :branch %>
+  <%= f.input :city %>
+  <%= f.input :state %>
+  <%= f.input :format %>
+  <%= f.input :dataset, as: :file %>
+  <%= f.submit "Tornar Dados Público", class: "btn btn-primary"%>
+<% end %>
+
+
