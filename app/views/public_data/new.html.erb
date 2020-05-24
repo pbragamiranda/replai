@@ -1,19 +1,51 @@
 <div class="container">
-  
   <h1>Upa os dados e deixe o Rio mais transparente!</h1>
 
-    <%= simple_form_for @public_datum do |f| %>
-       <%= f.input :name, label: "Título" %>
-      <%= f.input :description, label: "Descrição" %>
-      <%= f.input :category, label: "Categoria" %>
-      <%= f.input :level, label: "Esfera" %>
-      <%= f.input :power, label: "Poder" %>
-      <%= f.input :branch, label: "Órgão" %>
-      <%= f.input :city , label: "Cidade" %>
-      <%= f.input :state, label: "Estado" %>
-      <%= f.input :format, label: "Formato" %>
-      <%= f.input :dataset, as: :file %>
+    <%= simple_form_for @public_datum, 
+        wrapper: :horizontal_form, 
+        wrapper_mappings: {
+        boolean:       :horizontal_boolean,
+        check_boxes:   :horizontal_collection,
+        date:          :horizontal_multi_select,
+        datetime:      :horizontal_multi_select,
+        file:          :horizontal_file,
+        radio_buttons: :horizontal_collection,
+        range:         :horizontal_range,
+        time:          :horizontal_multi_select
+      } do |f| %>
+      <%= f.input :name,
+                  label: "Título",
+                  :hint => "Seja  breve e preciso. ex: 'Valor Diárias Vereadores Mangaratiba' " %>
+      <%= f.input :description, 
+                  label: "Descrição",
+                  :hint => "Adicione uma breve descrição sobre o conjunto de dados, especificando o conteúdo e a data em que os dados forem recebidos do poder público." %>
+      <%= f.input :category, 
+                  label: "Categoria" %>
+      <%= f.collection_radio_buttons :level,
+                                     [['Municipal', 'Municipal'],
+                                     ['Estadual', 'Estadual'],
+                                     ['Federal', 'Federal']],
+                                     :first, :last,
+                                     wrapper_html: { class: 'btn btn-primary' } %>
+      <%= f.collection_radio_buttons :power, 
+                                      [['Executivo', 'Executivo'],
+                                      ['Legislativo', 'Legislativo'],
+                                      ['Judiciário', 'Judiciário']],
+                                      :first, :last,
+                                      input_html: { class: 'btn btn-primary' } %>
+      <%= f.input :branch, 
+                  label: "Órgão" %>
+      <%= f.input :city , 
+                  label: "Município" %>
+      <%= f.input :state, 
+                  label: "Estado" %>
+      <%= f.input :format, 
+                  label: "Formato" %>
+      <%= f.input :dataset,
+                  label: "Selecione o arquivo que deseja tornar público", 
+                  as: :file %>
+
       <%= f.submit "Tornar Dados Público", class: "btn btn-primary"%>
     <% end %>
-
 </div>
+
