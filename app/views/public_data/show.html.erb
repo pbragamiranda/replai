@@ -1,0 +1,6 @@
+<div class="container">
+
+		<h1><%= @public_datum.name %></h1>
+		<%= link_to "Download dos Dados", rails_blob_path(@public_datum.dataset, disposition: 'attachment'), target: '_blank' %>
+
+</div>
