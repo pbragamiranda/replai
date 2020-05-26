@@ -1,1 +1,22 @@
+<% if @lai_request.status == "Editando" %>
+  <h2>Seu LAIRequest: revise antes de enviar.</h2>
+<% else %>
+  <h2>Seu LAIRequest enviado.</h2>
+<% end %>
+
+<p> Status: <%= @lai_request.status %> </p>
+<p> <%= @lai_request.deadline %> </p>
+
+
+<p> <%= @lai_request.title %> </p>
+<p><%= @lai_request.category %> </p>
+<p> <%= @lai_request.city_government_agency.city_name %> </p>
+<p> <%= @lai_request.city_government_agency.website %> </p>
+<p> <%= @lai_request.city_government_agency.email_executive %> </p>
+<p> <%= @lai_request.city_government_agency.email_legislative %> </p>
+<p> <%= @lai_request.city_government_agency.twitter_executive %> </p>
+<p> <%= @lai_request.city_government_agency.twitter_legislative %> </p>
+<p> <%= @lai_request.description %> </p>
+<p> <%= @lai_request.format %> </p>
+
 
