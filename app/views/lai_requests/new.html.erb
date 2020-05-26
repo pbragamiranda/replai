@@ -1,0 +1,8 @@
+<%= simple_form_for (@lai_request, @city_government_agency_names) do |f| %>
+  <%= f.input  :title%>
+  <%= f.association  :city_government_agency %>
+  <%= f.input  :description%>
+  <%= f.input  :category, collection: %w(Category_one category_two category_three)%>
+  <%= f.input  :format%>
+  <%= f.button :submit %>
+<% end %>

@@ -6,6 +6,12 @@ Rails.application.routes.draw do
   	resources :comments, only: [:new, :create]
   end
   resources :lai_requests, only: [:new, :create, :index, :show, :destroy] do
+    member do
+      patch 'submit'
+    end
+    collection do
+      get 'city_government_agency_names'
+    end
   	resources :request_answers, only: [:new, :create]
   end
 end
