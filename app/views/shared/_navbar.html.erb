@@ -1,9 +1,12 @@
 <div class="navbar navbar-replai">
   <%= link_to "#", class: "navbar-brand" do %>
-    <%= image_tag "https://i.ibb.co/SwmvgqK/Screenshot-from-2020-05-26-20-37-29.png" %>
+    <%= image_tag "logo-white.png" %>
     <% end %>
     <div class="navbar-menu">
-      <ul> 
+      <ul>
+          <li>
+            <%= link_to "Inicio", "#", class: "nav-link" %>
+          </li> 
           <li>
             <%= link_to "Sobre o repLAI", "#", class: "nav-link" %>
           </li>
@@ -16,6 +19,9 @@
           <li>
             <%= link_to "Buscar dados", "#", class: "nav-link" %>
           </li>
+          <!-- <li>          
+          <i class="fas fa-search fas-7px"></i>
+        </li> -->
       </ul>
     </div>
   </div>
