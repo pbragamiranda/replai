@@ -16,7 +16,7 @@
     <%= f.input  :title %>
     <%= f.association :city_government_agency, label_method: :city_name, value_method: :id %>
     <%= f.input  :description%>
-    <%= f.input  :category, collection: %w(Category_one category_two category_three)%>
+    <%= f.input  :category, collection: LaiRequest::CATEGORIES %>
     <%= f.input  :format%>
     <%= f.submit "Finalizar formulário", class: "btn btn-primary" %>
   <% end %>

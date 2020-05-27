@@ -1,7 +1,7 @@
 <% if @lai_request.status == "Editando" %>
   <h2>Seu LAIRequest: revise antes de enviar.</h2>
 <% else %>
-  <h2>Seu LAIRequest enviado.</h2>
+  <h2>Esse é seu LAIRequest enviado.</h2>
 <% end %>
 
 <p> Status: <%= @lai_request.status %> </p>
@@ -19,4 +19,4 @@
 <p> <%= @lai_request.description %> </p>
 <p> <%= @lai_request.format %> </p>
 
-
+<%= link_to "Envie", submit_lai_request_path, method: :patch  %>

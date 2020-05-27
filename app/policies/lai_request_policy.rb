@@ -13,6 +13,11 @@ class LaiRequestPolicy < ApplicationPolicy
     user_is_owner?
   end
 
+  def submit?
+    user_is_owner?
+  end
+
+
   private
   def user_is_owner?
     record.user == user

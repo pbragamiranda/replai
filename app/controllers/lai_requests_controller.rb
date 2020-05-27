@@ -2,8 +2,13 @@ class LaiRequestsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
   before_action :set_lai_request, only: [:submit, :show]
 
+  def index
+    @lai_requests = LaiRequest.all
+
+  end
+
   def new
-    @lai_request = LaiRequest.new()
+    @lai_request = LaiRequest.new
     authorize @lai_request
   end
 
@@ -22,19 +27,18 @@ class LaiRequestsController < ApplicationController
   def show
 
   end
-  # def city_government_agency_names
-  #   @city_government_agency_names = []
-  #   CityGovernmentAgency.select(:city_name).each do |city|
-  #     @city_government_agency_names << city.city_name
-  #   end
-  #   @city_government_agency_names
-  # end
 
 
   def submit
-      @lai_request.deadline = 20.days.from_now
-      @lai_request.status = "Em andamento"
-      enviar email para o orgão
+    # enviar o email pro orgaos fazer depois
+    @lai_request.deadline = 20.days.from_now
+    @lai_request.status = "Em andamento"
+
+    if @lai_request.save!
+      redirect_to lai_request_path(@lai_request), notice: "Lai Request submited!"
+    else
+      # redirect_to lai_request_path(@lai_request), notice: "you missed something"
+    end
   end
 
   private
