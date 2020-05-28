@@ -29,6 +29,12 @@
   float:none;
 }
 
+.navbar-replai li:hover {
+  text-decoration: none;
+  color: white;
+}
+
+
 
 .nav-link  {
  text-decoration: none;
@@ -56,12 +62,12 @@
 	color: white;
 	text-decoration: none;
 	content:'';
-  position:absolute;
+  position: absolute;
   width: 100%;
   height: 0;    
   left:0;
   bottom:2px; /*Change this to increase/decrease distance*/
-  border-bottom: 3px solid #000;
+  border-bottom: 3px solid white;
 }
 
 .navbar-replai .navbar-brand img {
