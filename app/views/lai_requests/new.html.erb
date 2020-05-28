@@ -1,23 +1,34 @@
 <div class="container">
-  <h1>Faça o seu pedido!</h1>
-  <%= simple_form_for @lai_request,
-          wrapper: :horizontal_form,
-          wrapper_mappings: {
-          boolean:       :horizontal_boolean,
-          check_boxes:   :horizontal_collection,
-          date:          :horizontal_multi_select,
-          datetime:      :horizontal_multi_select,
-          file:          :horizontal_file,
-          radio_buttons: :horizontal_collection,
-          range:         :horizontal_range,
-          time:          :horizontal_multi_select
-    } do |f| %>
-    <%= f.error_notification %>
-    <%= f.input  :title %>
-    <%= f.association :city_government_agency, label_method: :city_name, value_method: :id %>
-    <%= f.input  :description%>
-    <%= f.input  :category, collection: LaiRequest::CATEGORIES %>
-    <%= f.input  :format%>
-    <%= f.submit "Finalizar formulário", class: "btn btn-primary" %>
-  <% end %>
+  <h1>Dê o seu repLAI!</h1>
+
+    <%= simple_form_for @lai_request,
+        wrapper: :horizontal_form,
+        wrapper_mappings: {
+        boolean:       :horizontal_boolean,
+        check_boxes:   :horizontal_collection,
+        date:          :horizontal_multi_select,
+        datetime:      :horizontal_multi_select,
+        file:          :horizontal_file,
+        radio_buttons: :horizontal_collection,
+        range:         :horizontal_range,
+        time:          :horizontal_multi_select
+      } do |f| %>
+      <%= f.input :title,
+                  label: "Título da Solicitação",
+                  :hint => "Seja  breve e preciso. ex: 'Valor Diárias Vereadores Mangaratiba' " %>
+      <%= f.association :city_government_agency, label_method: :city_name, value_method: :id %>
+
+      <%= f.input :description,
+                  label: "Descrição",
+                  :hint => "Adicione uma breve descrição sobre o conjunto de dados que você quer solicitar, especificando o conteúdo e a data em que os dados forem recebidos do poder público." %>
+      <%= f.input :category,
+                  label: "Categoria",
+                  collection: LaiRequest::CATEGORIES %>
+
+      <%= f.input :format,
+                  label: "Formato do arquivo" %>
+      <%= f.submit "Finalizar formulário", class: "btn btn-primary"%>
+    <% end %>
 </div>
+
+
