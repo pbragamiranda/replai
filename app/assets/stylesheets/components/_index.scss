@@ -1,6 +1,20 @@
 // Import your components CSS files here.
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Oswald:wght@500;655&display=swap');
 @import "alert";
 @import "avatar";
 @import "navbar";
 @import "form";
 @import "card";
+@import "banner";
+@import "footer";
+@import "container";
+
+
+h1 {
+	font-family: 'Oswald', sans-serif;
+}
+
+h2, p {
+	font-family: 'Montserrat', sans-serif;
+}
+

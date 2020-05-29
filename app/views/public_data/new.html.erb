@@ -1,6 +1,6 @@
-<div class="container">
+<div class="container-form">
   <h1>Upa os dados e deixe o Rio mais transparente!</h1>
-
+    <div class="container-form-upload">
     <%= simple_form_for @public_datum, 
         wrapper: :horizontal_form, 
         wrapper_mappings: {
@@ -45,7 +45,8 @@
                   label: "Selecione o arquivo que deseja tornar público", 
                   as: :file %>
 
-      <%= f.submit "Tornar Dados Público", class: "btn btn-primary"%>
+      <%= f.submit "Tornar Dados Público", class: "btn btn-light"%>
     <% end %>
+    </div>
 </div>
 
