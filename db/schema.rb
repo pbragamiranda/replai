@@ -98,7 +98,7 @@ ActiveRecord::Schema.define(version: 2020_05_29_000347) do
     t.index ["lai_request_id"], name: "index_request_answers_on_lai_request_id"
   end
 
-  create_table "users", force: :cascade do |t|
+    create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
