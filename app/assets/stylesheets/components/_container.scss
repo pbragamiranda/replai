@@ -13,7 +13,7 @@
 
 .container-form {
 	color: white;
-	padding: 161px 114px 0 100px;
+	padding: 32px;
 	height: 100%;
   background-color: $dark-blue;
 }
@@ -22,19 +22,20 @@
 .container-form-upload {
 	color: white;
   background-color: $dark-blue;
+  padding: 48px;
 }
 
 .container-public-datum {
 	display: flex;
 	color: white;
-	padding: 161px 114px 0 100px;
 	height: 100%;
   background-color: $dark-blue;
-  align-items: top;
+  padding: 15px;
+  justify-content: space-evenly;
 }
 
 .public-datum{
-  padding: 16px;
+	padding: 4px;
 }
 
 .public-datum h2, h3 {
@@ -46,8 +47,8 @@
 }
 
 .container-right {
-  height: 100vh;
-  padding: 16px;
-  padding-left: 32px;
 }
 
+.container-comentario {
+	padding: 16px;
+}
