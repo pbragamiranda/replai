@@ -1,7 +1,7 @@
 
 const initUpdateNavbarOnScroll = () => {
-  const navbar = document.querySelector('.navbar-replai');
   console.log('ok');
+  const navbar = document.querySelector('.navbar-replai');
   if (navbar) {
     window.addEventListener('scroll', () => {
       if (window.scrollY >= window.innerHeight) {
