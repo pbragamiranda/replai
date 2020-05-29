@@ -26,8 +26,15 @@
 <h2>MODELO DE PEDIDO DE INFORMAÇÃO CONFORME LEI 12.527</h2>
 <p><%= @lai_request.city_government_agency.city_name %>, <%= Time.now.strftime("%d/%m/%Y") %> </p>
 <p> <%= @lai_request.city_government_agency.branch %>, <%= @lai_request.city_government_agency.city_name %> </p>
-Nome do órgão
-Caro(a) senhor(a) [ DIRETOR(A) // SECRETÁRIO(A) // AUTORIDADE RESPONSÁVEL ],
+
+<p>Prezada Autoridade Responsável,</p>
+
+<%= unless @lai_request.anonymity == true %>
+  <p> <%= @lai_request.user.name %>, inscrito </p>,
+<%= end %>
+
+
+
 [NOME DA ORGANIZAÇÃO OU INDIVÍDUO], inscrito(a) no [RG e/ou
 CPF // CNPJ/MF] sob o número [XXXX], por seu/sua representante legal, [XXXX  EM CASO DE PESSOA
 JURÍDICA], [RG e/ou CPF DO REPRESENTANTE LEGAL], com base no artigo 5º (XXXIII) da Constituição

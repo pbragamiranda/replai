@@ -5,6 +5,5 @@ class LaiRequest < ApplicationRecord
   validates :status, presence: true, inclusion: { in: %w(Editando Em\ andamento Atrasado Concluído) }
   CATEGORIES = %w[Transparência Financeira\ Saúde Educação Infraestrutura Segurança]
   validates :category, presence: true, inclusion: { in: CATEGORIES }
-  validates :anonymity, presence: true, inclusion: { in: CATEGORIES }
-
+  validates :anonymity, presence: true
 end

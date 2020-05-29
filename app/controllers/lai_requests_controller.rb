@@ -4,7 +4,12 @@ class LaiRequestsController < ApplicationController
 
   def index
     @lai_requests = LaiRequest.all
-
+    # @public_data = PublicDatum.all.order(created_at: :desc)
+    # if params[:query].present?
+    #   @products = Product.search_by_name_category_description(params[:query]).order(created_at: :desc)
+    # else
+    #   @products = Product.all.order(created_at: :desc)
+    # end
   end
 
   def new
