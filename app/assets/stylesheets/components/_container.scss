@@ -23,3 +23,31 @@
 	color: white;
   background-color: $dark-blue;
 }
+
+.container-public-datum {
+	display: flex;
+	color: white;
+	padding: 161px 114px 0 100px;
+	height: 100%;
+  background-color: $dark-blue;
+  align-items: top;
+}
+
+.public-datum{
+  padding: 16px;
+}
+
+.public-datum h2, h3 {
+  padding-top: 16px;
+}
+
+.public-datum p{
+  padding: 10px;
+}
+
+.container-right {
+  height: 100vh;
+  padding: 16px;
+  padding-left: 32px;
+}
+
