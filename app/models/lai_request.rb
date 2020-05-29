@@ -3,7 +3,10 @@ class LaiRequest < ApplicationRecord
   belongs_to :city_government_agency
   has_many :request_answers
   validates :status, presence: true, inclusion: { in: %w(Editando Em\ andamento Atrasado Concluído) }
-  CATEGORIES = %w[Transparência Financeira\ Saúde Educação Infraestrutura Segurança]
+  CATEGORIES = %w[Transparência Financeira Saúde Educação Infraestrutura Segurança]
   validates :category, presence: true, inclusion: { in: CATEGORIES }
-  validates :anonymity, presence: true
+  ANONYMITY = [true, false]
+  validates :anonymity, presence: true, inclusion: {in:ANONYMITY }
+
+
 end

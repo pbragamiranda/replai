@@ -48,7 +48,7 @@ class LaiRequestsController < ApplicationController
 
   private
   def lai_request_params
-    params.require(:lai_request).permit(:description, :category, :format, :title, :city_government_agency_id)
+    params.require(:lai_request).permit(:description, :category, :format, :title, :city_government_agency_id, :anonymity)
   end
 
   def set_lai_request
