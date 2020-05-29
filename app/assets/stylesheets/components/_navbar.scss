@@ -6,6 +6,7 @@
   background: transparent;
   align-items: flex-end;
   justify-content: space-around;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
   // transition: 0.5s background-color ease;
 }
 
@@ -38,9 +39,9 @@
  font-size: 18px;
 }
 
-.navbar-replai-white {
-  background: red;
-}
+// .navbar-replai-white {
+//   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+// }
 
 // .nav-link li:active {
 //   color: white;
@@ -66,4 +67,12 @@
 .navbar-replai .navbar-brand img {
   width: 150px;
   padding-left: 0px;
+}
+
+.nav-block{
+  display: block;
+  background: white;
+  margin-top: 0;
+  width: 100%;
+
 }
