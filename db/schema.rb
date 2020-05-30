@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_23_175818) do
+ActiveRecord::Schema.define(version: 2020_05_30_150954) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,16 +36,20 @@ ActiveRecord::Schema.define(version: 2020_05_23_175818) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "city_government_agencies", force: :cascade do |t|
-    t.string "city_name"
+  create_table "branches", force: :cascade do |t|
+    t.string "email"
+    t.string "twitter"
     t.string "website"
-    t.string "email_executive"
-    t.string "twitter_executive"
-    t.string "email_legislative"
-    t.string "twitter_legislative"
+    t.bigint "city_government_agency_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "branch"
+    t.index ["city_government_agency_id"], name: "index_branches_on_city_government_agency_id"
+  end
+
+  create_table "city_government_agencies", force: :cascade do |t|
+    t.string "city_name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "comments", force: :cascade do |t|
@@ -98,7 +102,7 @@ ActiveRecord::Schema.define(version: 2020_05_23_175818) do
     t.index ["lai_request_id"], name: "index_request_answers_on_lai_request_id"
   end
 
-    create_table "users", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -107,15 +111,16 @@ ActiveRecord::Schema.define(version: 2020_05_23_175818) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "cpf"
-    t.string "name"
     t.string "genre"
     t.date "birthdate"
-
+    t.string "first_name"
+    t.string "last_name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "branches", "city_government_agencies"
   add_foreign_key "comments", "public_data"
   add_foreign_key "comments", "users"
   add_foreign_key "lai_requests", "city_government_agencies"

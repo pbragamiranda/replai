@@ -6,6 +6,26 @@
     <%= f.error_notification %>
 
     <div class="form-inputs">
+      <%= f.input :first_name,
+                  required: true,
+                  autofocus: true,
+                  input_html: { autocomplete: "Nome" }%>
+      <%= f.input :last_name,
+                  required: true,
+                  autofocus: true,
+                  input_html: { autocomplete: "Sobrenome" }%>
+      <%= f.input :birthdate, as: :date, start_year: Date.today.year - 16,
+                              end_year: Date.today.year - 90,
+                              discard_day: false,
+                              order: [:day, :month, :year] %>
+      <%= f.input :genre,
+                  required: true,
+                  autofocus: true,
+                  input_html: { autocomplete: "Sexo" }%>
+      <%= f.input :cpf,
+                  required: true,
+                  autofocus: true,
+                  input_html: { autocomplete: "CPF" }%>
       <%= f.input :email,
                   required: true,
                   autofocus: true,
