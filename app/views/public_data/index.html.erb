@@ -8,11 +8,10 @@
 
           <img src="https://via.placeholder.com/30" alt="">
           <div>
-            <h2><%= dataset.name %></h2>
+            <%= link_to public_datum_path(dataset) do %>
+            <h2><%= dataset.name %></h2>  
+            <% end %>
             <p><%= dataset.category %></p>
-             <%= link_to public_datum_path(dataset) do %>
-               Acessar
-            <% end %>|
           </div>
         </div>
     	<% end %>

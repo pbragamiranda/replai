@@ -6,7 +6,7 @@ puts 'Creating User'
 
 User.destroy_all
 
-new_user = {email: "benjamim@benjamin.com", password: "password", cpf:13367890043, 
+new_user = {email: "benjamim@benjamim.com", password: "password", cpf:13367890043, 
 						genre: "m", birthdate: "1992-11-24", first_name: "Benjamin", last_name: "Assis"  }
 
 User.create!(new_user)
