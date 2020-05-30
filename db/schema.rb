@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_30_150441) do
-
+ActiveRecord::Schema.define(version: 2020_05_30_164553) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,11 +71,11 @@ ActiveRecord::Schema.define(version: 2020_05_30_150441) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "city_government_agency_id"
     t.datetime "deadline"
     t.string "title"
     t.boolean "anonymity", default: false
-    t.index ["city_government_agency_id"], name: "index_lai_requests_on_city_government_agency_id"
+    t.bigint "branch_id"
+    t.index ["branch_id"], name: "index_lai_requests_on_branch_id"
     t.index ["user_id"], name: "index_lai_requests_on_user_id"
   end
 
@@ -84,7 +83,6 @@ ActiveRecord::Schema.define(version: 2020_05_30_150441) do
     t.string "category"
     t.string "power"
     t.text "description"
-    t.string "branch"
     t.string "city"
     t.string "state"
     t.string "name"
@@ -93,6 +91,8 @@ ActiveRecord::Schema.define(version: 2020_05_30_150441) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "branch_id"
+    t.index ["branch_id"], name: "index_public_data_on_branch_id"
     t.index ["user_id"], name: "index_public_data_on_user_id"
   end
 
@@ -125,8 +125,9 @@ ActiveRecord::Schema.define(version: 2020_05_30_150441) do
   add_foreign_key "branches", "city_government_agencies"
   add_foreign_key "comments", "public_data"
   add_foreign_key "comments", "users"
-  add_foreign_key "lai_requests", "city_government_agencies"
+  add_foreign_key "lai_requests", "branches"
   add_foreign_key "lai_requests", "users"
+  add_foreign_key "public_data", "branches"
   add_foreign_key "public_data", "users"
   add_foreign_key "request_answers", "lai_requests"
 end
