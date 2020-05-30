@@ -1,8 +1,8 @@
 <div class="container-form">
   <h1>Compartilhe dados públicos e deixe o Rio mais transparente</h1>
     <div class="container-form-upload">
-    <%= simple_form_for @public_datum, 
-        wrapper: :horizontal_form, 
+    <%= simple_form_for @public_datum,
+        wrapper: :horizontal_form,
         wrapper_mappings: {
         boolean:       :horizontal_boolean,
         check_boxes:   :horizontal_collection,
@@ -16,10 +16,10 @@
       <%= f.input :name,
                   label: "Título",
                   :hint => "Seja  breve e preciso. ex: 'Valor Diárias Vereadores Mangaratiba' " %>
-      <%= f.input :description, 
+      <%= f.input :description,
                   label: "Descrição",
                   :hint => "Adicione uma breve descrição sobre o conjunto de dados, especificando o conteúdo e a data em que os dados forem recebidos do poder público." %>
-      <%= f.input :category, 
+      <%= f.input :category,
                   label: "Categoria" %>
       <%= f.collection_radio_buttons :level,
                                      [['Municipal', 'Municipal'],
@@ -27,22 +27,21 @@
                                      ['Federal', 'Federal']],
                                      :first, :last,
                                      wrapper_html: { class: 'btn btn-primary' } %>
-      <%= f.collection_radio_buttons :power, 
+      <%= f.collection_radio_buttons :power,
                                       [['Executivo', 'Executivo'],
                                       ['Legislativo', 'Legislativo'],
                                       ['Judiciário', 'Judiciário']],
                                       :first, :last,
                                       input_html: { class: 'btn btn-primary' } %>
-      <%= f.input :branch, 
-                  label: "Órgão" %>
-      <%= f.input :city , 
+      <%= f.association :branch, label_method: :branch_name, value_method: :id, label: "Orgão"%>
+      <%= f.input :city ,
                   label: "Município" %>
-      <%= f.input :state, 
+      <%= f.input :state,
                   label: "Estado" %>
-      <%= f.input :format, 
+      <%= f.input :format,
                   label: "Formato" %>
       <%= f.input :dataset,
-                  label: "Selecione o arquivo que deseja tornar público", 
+                  label: "Selecione o arquivo que deseja tornar público",
                   as: :file %>
       <div style= "text-align: right">
         <%= f.submit "Tornar Dados Público", class: "btn btn-primary btn-lg" %>

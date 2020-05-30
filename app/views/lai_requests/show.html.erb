@@ -21,9 +21,9 @@
     <% end %>
 
 
-    <h3>Município: <%= @lai_request.city_government_agency.city_name %></h3>
-    <!-- <h3>Orgão: @lai_request.branch.branch </h3>
-     --><h3>Formato do arquivo: <%= @lai_request.format %></h3>
+    <h3>Município: <%= @lai_request.branch.city_government_agency.city_name%></h3>
+    <h3>Orgão: <%= @lai_request.branch.branch_name  %> </h3>
+    <h3>Formato do arquivo: <%= @lai_request.format %></h3>
 
     <h3>Descrição do pedido:</h3>
     <p style="padding-bottom: 16px;"><%= @lai_request.description %></p>
