@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2020_05_30_150441) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -43,6 +44,7 @@ ActiveRecord::Schema.define(version: 2020_05_30_150441) do
     t.bigint "city_government_agency_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "branch_name"
     t.index ["city_government_agency_id"], name: "index_branches_on_city_government_agency_id"
   end
 
