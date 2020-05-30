@@ -1,0 +1,49 @@
+.form-block {
+    margin-top: 40px;
+}
+
+.my-container {
+    width: 1000px;
+    margin: 30px auto;
+    h2{
+      font-size:28px;
+    }
+    h3{
+      font-size: 22px;
+    }
+}
+
+.icon {
+    display:flex;
+    align-items: flex-end;
+    justify-content: center;
+    .plus {
+        font-size: 32px;
+    }
+}
+
+@media print {
+    .no-print, .no-print *
+    {
+        display: none !important;
+    }
+}
+
+.container-lai-request {
+  display: flex;
+  color: white;
+  height: 100%;
+  background-color: $dark-blue;
+  padding: 40px 150px;
+  justify-content: space-evenly;
+}
+
+.lai-request {
+  h2 {
+    padding-top: 40px;
+  }
+  h3 {
+    font-size: 20px;
+  }
+}
+

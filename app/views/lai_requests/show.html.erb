@@ -1,0 +1,42 @@
+<div class="container-lai-request">
+  <div class="lai-request">
+
+    <% if @lai_request.status == "Editando" %>
+      <h1 class="text-center" style="padding-top:16px;">Seu LAIRequest: revise antes de enviar</h1>
+    <% else %>
+      <h1 class="text-center" style="padding-top:16px;">Esse é seu LAIRequest enviado</h1>
+    <% end %>
+
+    <h2>Solicitação: <%= @lai_request.title %></h2>
+    <br>
+
+    <h3>Status: <%= @lai_request.status %></h3>
+    <% unless @lai_request.status == "Editando" %>
+      <h3>Prazo: <%= @lai_request.deadline.strftime("%d/%m/%Y") %></h3>
+    <% end %>
+
+
+    <h3>Município: <%= @lai_request.city_government_agency.city_name %></h3>
+    <h3>Orgão: <%= @lai_request.city_government_agency.branch %></h3>
+    <h3>Formato do arquivo: <%= @lai_request.format %></h3>
+
+    <h3>Descrição do pedido:</h3>
+    <p style="padding-bottom: 16px;"><%= @lai_request.description %></p>
+
+    <div style= "text-align: right">
+      <% if @lai_request.status == "Editando" %>
+        <%= link_to submit_lai_request_path, method: :patch, class: "btn btn-primary btn-lg no-print" do %>
+          Envie sua solicitação
+        <% end %>
+      <% else %>
+        <%= link_to submit_lai_request_path, method: :patch, class: "btn btn-primary btn-lg no-print" do %>
+          Ver minha solicitação
+        <% end %>
+      <% end %>
+    </div>
+
+
+  </div>
+
+</div>
+

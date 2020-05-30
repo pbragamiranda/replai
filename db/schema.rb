@@ -12,7 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2020_05_23_175818) do
 
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -46,6 +45,7 @@ ActiveRecord::Schema.define(version: 2020_05_23_175818) do
     t.string "twitter_legislative"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "branch"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -68,6 +68,8 @@ ActiveRecord::Schema.define(version: 2020_05_23_175818) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "city_government_agency_id"
     t.datetime "deadline"
+    t.string "title"
+    t.boolean "anonymity", default: false
     t.index ["city_government_agency_id"], name: "index_lai_requests_on_city_government_agency_id"
     t.index ["user_id"], name: "index_lai_requests_on_user_id"
   end
@@ -96,7 +98,7 @@ ActiveRecord::Schema.define(version: 2020_05_23_175818) do
     t.index ["lai_request_id"], name: "index_request_answers_on_lai_request_id"
   end
 
-  create_table "users", force: :cascade do |t|
+    create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -106,6 +108,9 @@ ActiveRecord::Schema.define(version: 2020_05_23_175818) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "cpf"
     t.string "name"
+    t.string "genre"
+    t.date "birthdate"
+
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
