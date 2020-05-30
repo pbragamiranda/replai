@@ -30,8 +30,9 @@ class LaiRequestsController < ApplicationController
   end
 
   def show
-
   end
+
+
 
 
   def submit
@@ -48,7 +49,7 @@ class LaiRequestsController < ApplicationController
 
   private
   def lai_request_params
-    params.require(:lai_request).permit(:description, :category, :format, :title, :city_government_agency_id, :anonymity)
+    params.require(:lai_request).permit(:description, :category, :format, :title, :anonymity, :branch_id)
   end
 
   def set_lai_request
