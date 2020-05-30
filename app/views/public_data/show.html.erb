@@ -1,0 +1,32 @@
+<div class="container-public-datum">
+	<div class="public-datum">
+		<h1><%= @public_datum.name %></h1>
+		<br>
+		<p class="btn btn-outline-light"><%= @public_datum.branch %></p>
+		<p class="btn btn-outline-light"><%= @public_datum.category %></p>
+		<p class="btn btn-outline-light"><%= @public_datum.power %></p>
+
+		<h3>Município: <%= @public_datum.city %></h3>
+		
+		<h3>Descrição dos Dados</h3>
+		<p><%= @public_datum.description %></p>
+		
+		
+		<div style= "text-align: right">
+			<p>Formato: <%= @public_datum.format %></p>
+			<%= link_to "Download dos Dados", rails_blob_path(@public_datum.dataset, disposition: 'attachment'), target: '_blank', class: "btn btn-primary btn-lg"%>
+		</div>
+	</div>
+	<img class="container-right" src='https://api.mapbox.com/styles/v1/mapbox/light-v10/static/-42.3992,-22.3201,5.57,0/300x200?access_token=pk.eyJ1IjoicGJyYWdhbWlyYW5kYSIsImEiOiJjazg5YzJva2EwNWZzM2ducnZlcGdvcXN6In0.NPUtKwAk2yFbBvv0ZYK1Kw'>
+	
+</div>
+<div>
+	<div class="container-comentario">
+		<h1>Comentários</h1>
+		<br>
+		<p class="rounded border">Yuri: Arquivo bem estruturado, interessante ver o padrão de gasto das diárias.</p>
+		<p class="rounded border">Leandro: Assessor do PSL gosta de viajar mesmo hein..</p>
+	</div>
+</div>
+
+

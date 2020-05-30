@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="results">
+
+    <h1 class="pt-3">Dados para <span class="text-secondary">"Câmara dos Deputados"</span><br>
+    <h1 class="mb-3">sobre <span class="text-secondary">salários assessores do Maia</span>
+  </div>
+  <div class="d-flex">
+    <div class="left-side w-75">
+
+    	<% @public_data.each do |dataset| %>
+    		<div class="card-product rounded mb-3">
+
+          <img src="https://via.placeholder.com/30" alt="">
+          <div>
+            <h2><%= dataset.name %></h2>
+            <p><%= dataset.category %></p>
+          </div>
+        </div>
+    	<% end %>
+    </div>
+
+    <div class="right-side">
+
+
+    </div>
+  </div>
+</div>
