@@ -4,18 +4,21 @@
   background-color: white;
   align-items: center;
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+  // text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
 }
 
 .card-product img {
-  height: 150px;
-  margin-right: 16px;
+  height: 120px;
+  margin-right: 10px;
 }
 
 .card-product h2 {
   margin: 0;
+  padding: 4px;
+  color: black;
 }
 
 .card-product p {
   margin: 0;
+  color: black;
 }
