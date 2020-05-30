@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_23_185644) do
+ActiveRecord::Schema.define(version: 2020_05_30_150441) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,13 +37,18 @@ ActiveRecord::Schema.define(version: 2020_05_23_185644) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "branches", force: :cascade do |t|
+    t.string "email"
+    t.string "twitter"
+    t.string "website"
+    t.bigint "city_government_agency_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["city_government_agency_id"], name: "index_branches_on_city_government_agency_id"
+  end
+
   create_table "city_government_agencies", force: :cascade do |t|
     t.string "city_name"
-    t.string "website"
-    t.string "email_executive"
-    t.string "twitter_executive"
-    t.string "email_legislative"
-    t.string "twitter_legislative"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -67,6 +73,8 @@ ActiveRecord::Schema.define(version: 2020_05_23_185644) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "city_government_agency_id"
     t.datetime "deadline"
+    t.string "title"
+    t.boolean "anonymity", default: false
     t.index ["city_government_agency_id"], name: "index_lai_requests_on_city_government_agency_id"
     t.index ["user_id"], name: "index_lai_requests_on_user_id"
   end
@@ -103,11 +111,16 @@ ActiveRecord::Schema.define(version: 2020_05_23_185644) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "cpf"
+    t.string "name"
+    t.string "genre"
+    t.date "birthdate"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "branches", "city_government_agencies"
   add_foreign_key "comments", "public_data"
   add_foreign_key "comments", "users"
   add_foreign_key "lai_requests", "city_government_agencies"

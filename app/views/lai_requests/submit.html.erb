@@ -1,0 +1,53 @@
+<div class="my-container">
+  <div style="text-align: right;">
+    <%= link_to lai_request_path(@lai_request), class: "btn btn-primary btn-lg no-print" do %>
+    Voltar
+    <% end %>
+    <button class="btn btn-primary btn-lg no-print" id="printPageButton" onClick="window.print();">Print</button>
+
+  </div>
+  <h2 class="text-center font-weight-bold" style="margin-top: 2em;">PEDIDO DE INFORMAÇÃO CONFORME LEI 12.527</h2>
+
+  <h3 style="margin-top: 4em;"> <%= @lai_request.city_government_agency.city_name %>, <%= Time.now.strftime("%d/%m/%Y") %> </h3>
+  <br>
+  <h3 style="margin-top: 1em;"> Prezada Autoridade Responsável, </h3>
+  <br>
+
+  <% unless @lai_request.anonymity == true %>
+    <h3 class="text-justify" style="text-indent:100px;margin-top: 2em;"> Eu <span class="font-weight-bold"><%= @lai_request.user.name %></span>, inscrito no CPF sob o número <span class="font-weight-bold"><%= @lai_request.user.cpf %></span>, com base no artigo 5º (XXXIII) da Constituição
+Federal e nos artigos 10, 11 e 12 da Lei nº 12.527/2011 à Lei Geral de Acesso a Informações Públicas, dirijo-me respeitosamente a Vossa Senhoria, com o objetivo de apresentar o seguinte:</h3>
+    <br>
+  <% else %>
+    <h3  class="text-justify" style="text-indent:100px;margin-top: 2em;">A <span class="font-weight-bold">Replai</span>, inscrita no CNPJ sob o <span class="font-weight-bold">nº 12.345.678/0001-90</span>, representada por <span class="font-weight-bold">Silvio Silva Silveira</span>, inscrito no CPF sob o <span class="font-weight-bold">nº 123.123.123-12</span>,com base no artigo 5º (XXXIII) da Constituição Federal e nos artigos 10, 11 e 12 da Lei nº 12.527/2011 à Lei Geral de Acesso a Informações Públicas, dirige-se respeitosamente a Vossa Senhoria, com o objetivo de apresentar o seguinte:</h3>
+  <% end %>
+
+<br>
+  <h3 class="text-center" style="margin-top: 1em;"> REQUERIMENTO DE INFORMAÇÕES RELACIONADAS A: <br> <span class="font-weight-bold">"<%= @lai_request.title.upcase %></span>"</h3>
+
+    <h3 class="text-justify" style="margin-top: 2em;"> 1. O Requerente solicita o acesso a todos os documentos relacionados a <span class="font-weight-bold"><%= @lai_request.title.downcase %></span>, no formato de arquivo <span class="font-weight-bold"><%= @lai_request.format %></span>, incluindo  mas não se limitando a  as seguintes informações:</h3>
+
+    <h3 class="text-justify" style="text-indent:100px;margin-top: 2em; margin-left: 100px;"><%= @lai_request.description %></h3>
+    <br>
+    <h3 class="text-justify"> 2. Em cumprimento ao artigo 11 da Lei nº 12.527, de 18 de novembro de 2011, o acesso às informações requisitadas deve ser imediato. Não sendo possível o acesso imediato, a resposta, em conformidade com o referido artigo, deve ser expedida no prazo máximo de 20 (vinte) dias, contados do protocolo deste Requerimento junto a(o) <span class="font-weight-bold"><%= @lai_request.city_government_agency.branch%> - <%= @lai_request.city_government_agency.city_name %></span>. Para o recebimento da resposta, comunico o seguinte endereço <span class="font-weight-bold">pedido@replai.org</span>.</h3>
+<br>
+
+
+    <h3 style="margin-top: 2em;"> Atenciosamente, </h3>
+  <% unless @lai_request.anonymity == true %>
+    <h3 class="text-center" style="margin-top: 2em;"> <span class="font-weight-bold"style="border-top:1px solid #000;"> <%= @lai_request.user.name %> </span> </h3>
+    <h4 class="text-center" style="padding-top: 0px; font-size:20px;"> CPF - <%= @lai_request.user.cpf %> </h4>
+  <% else %>
+    <h3 class="text-center" style="margin-top: 2em;"> <span class="font-weight-bold">Replai</span></h3>
+    <h4 class="text-center" style="padding-top: 0px; font-size:20px;">CNPJ - 12.345.678/0001-90 </h4>
+    <h4 class="text-center" style="padding-top: 0px; font-size:20px;">Representada por: Silvio Silva Siveira (CPF - 123.123.123-12)</h4>
+  <% end %>
+
+
+</div>
+
+<br>
+<br>
+<br>
+<%#= link_to "Ver pdf da nota", "#{nota_path}.pdf", class: "btn btn-primary" %>
+
+
