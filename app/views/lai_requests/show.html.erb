@@ -21,17 +21,8 @@
 
 <%= link_to "Envie", submit_lai_request_path, method: :patch  %>
 
+<!--
 
-
-<h2>MODELO DE PEDIDO DE INFORMAÇÃO CONFORME LEI 12.527</h2>
-<p><%= @lai_request.city_government_agency.city_name %>, <%= Time.now.strftime("%d/%m/%Y") %> </p>
-<p> <%= @lai_request.city_government_agency.branch %>, <%= @lai_request.city_government_agency.city_name %> </p>
-
-<p>Prezada Autoridade Responsável,</p>
-
-<%= unless @lai_request.anonymity == true %>
-  <p> <%= @lai_request.user.name %>, inscrito </p>,
-<%= end %>
 
 
 
@@ -58,3 +49,6 @@ comunico o seguinte endereço [ XXXX  ELETRÔNICO OU FÍSICO  XXXX].
 Atenciosamente,
 ___________________________
 IDENTIFICAÇÃO DO REQUERENTE
+
+
+ -->

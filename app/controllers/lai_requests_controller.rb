@@ -40,9 +40,9 @@ class LaiRequestsController < ApplicationController
     @lai_request.status = "Em andamento"
 
     if @lai_request.save!
-      redirect_to lai_request_path(@lai_request), notice: "Lai Request submited!"
+      render :submit
     else
-      # redirect_to lai_request_path(@lai_request), notice: "you missed something"
+      redirect_to lai_request_path(@lai_request), notice: "you missed something"
     end
   end
 

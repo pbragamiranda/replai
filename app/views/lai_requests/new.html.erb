@@ -24,7 +24,7 @@
       <%= f.input :category,
                   label: "Categoria",
                   collection: LaiRequest::CATEGORIES %>
-      <%= f.input :anonymity, label: "repLAI anônimo?", collection: LaiRequest::ANONYMITY %>
+      <%= f.input :anonymity, label: "repLAI anônimo?", :as => :boolean %>
       <%= f.input :format,
                   label: "Formato do arquivo" %>
       <%= f.submit "Finalizar formulário", class: "btn btn-primary"%>
