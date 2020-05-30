@@ -38,8 +38,6 @@ class PublicDataController < ApplicationController
 	end
 
 	def public_datum_params
-		params.require(:public_datum).permit(:category, :power, :description,
-																				 :branch, :city, :state, :name,
-																				 :format, :level, :dataset)
+		params.require(:public_datum).permit(:category, :power, :description, :branch, :city, :state, :name, :format, :level, :dataset, :branch_id)
 	end
 end
