@@ -3,7 +3,12 @@ class PublicDataController < ApplicationController
 	before_action :find_public_data, only: [:show]
 
 	def index
-		@public_data = PublicDatum.all.order(created_at: :desc)
+		# @public_data = PublicDatum.all.order(created_at: :desc)
+    if params[:query].present?
+      @public_data = PublicDatum.search_by_name_category_description(params[:query]).order(created_at: :desc)
+    else
+      @public_data = PublicDatum.all.order(created_at: :desc)
+    end
 	end
 
 	def show
@@ -33,8 +38,8 @@ class PublicDataController < ApplicationController
 	end
 
 	def public_datum_params
-		params.require(:public_datum).permit(:category, :power, :description, 
-																				 :branch, :city, :state, :name, 
+		params.require(:public_datum).permit(:category, :power, :description,
+																				 :branch, :city, :state, :name,
 																				 :format, :level, :dataset)
 	end
 end
