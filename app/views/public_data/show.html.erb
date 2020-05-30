@@ -2,7 +2,6 @@
 	<div class="public-datum">
 		<h1><%= @public_datum.name %></h1>
 		<br>
-		<p class="btn btn-outline-light"><%= @public_datum.branch %></p>
 		<p class="btn btn-outline-light"><%= @public_datum.category %></p>
 		<p class="btn btn-outline-light"><%= @public_datum.power %></p>
 
@@ -14,7 +13,7 @@
 		
 		<div style= "text-align: right">
 			<p>Formato: <%= @public_datum.format %></p>
-			<%= link_to "Download dos Dados", rails_blob_path(@public_datum.dataset, disposition: 'attachment'), target: '_blank', class: "btn btn-primary btn-lg"%>
+			<%= link_to "Download dos Dados", "#" , class: "btn btn-primary btn-lg"%>
 		</div>
 	</div>
 	<img class="container-right" src='https://api.mapbox.com/styles/v1/mapbox/light-v10/static/-42.3992,-22.3201,5.57,0/300x200?access_token=pk.eyJ1IjoicGJyYWdhbWlyYW5kYSIsImEiOiJjazg5YzJva2EwNWZzM2ducnZlcGdvcXN6In0.NPUtKwAk2yFbBvv0ZYK1Kw'>
