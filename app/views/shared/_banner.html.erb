@@ -3,6 +3,13 @@
 	    <h1>Dados públicos </h1>
 	    <h1>são <span id="banner-typed-text"></span>dados públicos</h1>
 	    <p>deixando o governo mais transparente através da LAI.</p>
+      <div class="d-flex">
+        <%= form_tag public_data_path, method: :get do %>
+            <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Qual dado público você busca?" %>
+        <% end %>
+        <%= submit_tag "Pesquisar", class: "btn btn-primary" %>
+      </div>
    	</div>
+
  </div>
 
