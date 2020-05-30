@@ -1,1 +1,23 @@
-index.html.erb
+<div>
+<h1><span class="text-secondary">Suas solicitações de acesso a informação:</span><br></h1>
+</div>
+<div class="container-lai-request">
+  <div class="lai-request">
+      <% @lai_requests.each do |request| %>
+        <div class="card-product rounded mb-3">
+          <div>
+            <h4><%= request.title %></h4>
+            <p>Categoria - <%= request.category %></p>
+            <p>Status - <%= request.status %></p>
+            <% if request.deadline %>
+              <p>Deadline - <%= request.deadline.strftime("%d/%m/%Y") %></p>
+            <% end %>
+            <%= link_to lai_request_path(request) do %>
+              Acessar
+            <% end %>|
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

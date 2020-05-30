@@ -14,7 +14,7 @@
   <br>
 
   <% unless @lai_request.anonymity == true %>
-    <h3 class="text-justify" style="text-indent:100px;margin-top: 2em;"> Eu <span class="font-weight-bold"><%= @lai_request.user.name %></span>, inscrito no CPF sob o número <span class="font-weight-bold"><%= @lai_request.user.cpf %></span>, com base no artigo 5º (XXXIII) da Constituição
+    <h3 class="text-justify" style="text-indent:100px;margin-top: 2em;"> Eu <span class="font-weight-bold"><%= @lai_request.user.first_name %> <%= @lai_request.user.last_name %></span>, inscrito no CPF sob o número <span class="font-weight-bold"><%= @lai_request.user.cpf %></span>, com base no artigo 5º (XXXIII) da Constituição
 Federal e nos artigos 10, 11 e 12 da Lei nº 12.527/2011 à Lei Geral de Acesso a Informações Públicas, dirijo-me respeitosamente a Vossa Senhoria, com o objetivo de apresentar o seguinte:</h3>
     <br>
   <% else %>
@@ -28,13 +28,13 @@ Federal e nos artigos 10, 11 e 12 da Lei nº 12.527/2011 à Lei Geral de Acesso 
 
     <h3 class="text-justify" style="text-indent:100px;margin-top: 2em; margin-left: 100px;"><%= @lai_request.description %></h3>
     <br>
-    <h3 class="text-justify"> 2. Em cumprimento ao artigo 11 da Lei nº 12.527, de 18 de novembro de 2011, o acesso às informações requisitadas deve ser imediato. Não sendo possível o acesso imediato, a resposta, em conformidade com o referido artigo, deve ser expedida no prazo máximo de 20 (vinte) dias, contados do protocolo deste Requerimento junto a(o) <span class="font-weight-bold"><%= @lai_request.city_government_agency.branch%> - <%= @lai_request.city_government_agency.city_name %></span>. Para o recebimento da resposta, comunico o seguinte endereço <span class="font-weight-bold">pedido@replai.org</span>.</h3>
+    <h3 class="text-justify"> 2. Em cumprimento ao artigo 11 da Lei nº 12.527, de 18 de novembro de 2011, o acesso às informações requisitadas deve ser imediato. Não sendo possível o acesso imediato, a resposta, em conformidade com o referido artigo, deve ser expedida no prazo máximo de 20 (vinte) dias, contados do protocolo deste Requerimento junto a(o) <span class="font-weight-bold"> <!-- @lai_request.city_government_agency.branch --> - <%= @lai_request.city_government_agency.city_name %></span>. Para o recebimento da resposta, comunico o seguinte endereço <span class="font-weight-bold">pedido@replai.org</span>.</h3>
 <br>
 
 
     <h3 style="margin-top: 2em;"> Atenciosamente, </h3>
   <% unless @lai_request.anonymity == true %>
-    <h3 class="text-center" style="margin-top: 2em;"> <span class="font-weight-bold"style="border-top:1px solid #000;"> <%= @lai_request.user.name %> </span> </h3>
+    <h3 class="text-center" style="margin-top: 2em;"> <span class="font-weight-bold"style="border-top:1px solid #000;"> <%= @lai_request.user.first_name %> <%= @lai_request.user.last_name %> </span> </h3>
     <h4 class="text-center" style="padding-top: 0px; font-size:20px;"> CPF - <%= @lai_request.user.cpf %> </h4>
   <% else %>
     <h3 class="text-center" style="margin-top: 2em;"> <span class="font-weight-bold">Replai</span></h3>
