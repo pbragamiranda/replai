@@ -40,15 +40,15 @@ class LaiRequestsController < ApplicationController
     @lai_request.status = "Em andamento"
 
     if @lai_request.save!
-      redirect_to lai_request_path(@lai_request), notice: "Lai Request submited!"
+      render :submit
     else
-      # redirect_to lai_request_path(@lai_request), notice: "you missed something"
+      redirect_to lai_request_path(@lai_request), notice: "you missed something"
     end
   end
 
   private
   def lai_request_params
-    params.require(:lai_request).permit(:description, :category, :format, :title, :city_government_agency_id)
+    params.require(:lai_request).permit(:description, :category, :format, :title, :city_government_agency_id, :anonymity)
   end
 
   def set_lai_request

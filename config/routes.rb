@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :lai_requests, only: [:new, :create, :index, :show, :destroy] do
     member do
       patch 'submit'
+      get 'submit'
     end
     collection do
       get 'city_government_agency_names'
