@@ -2,6 +2,7 @@ class PublicDatum < ApplicationRecord
 
   has_one_attached :dataset
   belongs_to :user
+  belongs_to :branch
   has_many :comments
 
   include PgSearch::Model
