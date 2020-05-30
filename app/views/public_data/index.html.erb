@@ -1,5 +1,5 @@
 <div>
-<h1>Dados para <span class="text-secondary">"Câmara dos Deputados"</span><br></h1>
+<h1>Resultado:<br></h1>
 </div>
 <div class="container-public-datum">
   <div class="public-datum">
@@ -10,6 +10,9 @@
           <div>
             <h2><%= dataset.name %></h2>
             <p><%= dataset.category %></p>
+             <%= link_to public_datum_path(dataset) do %>
+               Acessar
+            <% end %>|
           </div>
         </div>
     	<% end %>
