@@ -1,6 +1,7 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 
+
 puts 'Creating User'
 
 User.destroy_all
@@ -79,6 +80,5 @@ data.each do |public_datum|
 
 	pdata.save! 
 end
-
 
 # pdata.dataset.attach(io: File.open(Rails.root + "app/assets/images/#{images_array.sample}.jpg"), filename: "public_data.jpg", content_type: "image/jpg")
