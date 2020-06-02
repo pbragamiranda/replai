@@ -1,9 +1,3 @@
-.container-middle {
-	height: 800px;
-	display: flex;
-  align-items: center;
-}
-
 .container-img {
 	padding-left: 295px;
   width: 500px;
@@ -13,8 +7,9 @@
 
 .container-form {
 	color: white;
+	margin: auto;
 	padding: 32px;
-	height: 100%;
+	width: 800px ;
   background-color: $dark-blue;
 }
 
