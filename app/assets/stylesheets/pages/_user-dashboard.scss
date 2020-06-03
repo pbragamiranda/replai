@@ -1,0 +1,36 @@
+.container-user-dashboard {
+  color: black;
+  height: 100vh;
+  background-color: $dark-blue;
+  padding: 40px 150px;
+}
+
+.dashboard-head{
+  padding: 4px 12px;
+}
+
+.dashboard-card {
+  background-color: white;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  margin: 3px auto;
+  padding: 12px;
+  p {
+    margin-top: 0;
+    margin-bottom: 0rem;
+  }
+}
+
+.hvr-grow {
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  transition-duration: 0.3s;
+  transition-property: transform;
+}
+
+.hvr-grow:hover,
+.hvr-grow:focus,
+.hvr-grow:active {
+    transform: scale(1.04);
+}

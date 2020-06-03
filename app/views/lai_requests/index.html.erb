@@ -1,23 +1,17 @@
-<div>
-<h1><span class="text-secondary">Suas solicitações de acesso a informação:</span><br></h1>
-</div>
-<div class="container-lai-request">
-  <div class="lai-request">
-      <% @lai_requests.each do |request| %>
-        <div class="card-product rounded mb-3 p-3">
-          <div>
-            <%= link_to lai_request_path(request) do %>
-              <h4><%= request.title %></h4>
-            <% end %>
+<h1 class="dashboard-head"><span class="text-secondary">Olá, <%= current_user.first_name %></span><br></h1>
+<div class="container-user-dashboard">
+  <div>
+    <% @lai_requests.each do |request| %>
+        <%= link_to lai_request_path(request) do %>
+          <div class="dashboard-card hvr-grow">
+            <h4><%= request.title %></h4>
             <p>Categoria - <%= request.category %></p>
             <p>Status - <%= request.status %></p>
             <% if request.deadline %>
               <p>Deadline - <%= request.deadline.strftime("%d/%m/%Y") %></p>
             <% end %>
-            
           </div>
-        </div>
+        <% end %>
       <% end %>
-    </div>
   </div>
 </div>
