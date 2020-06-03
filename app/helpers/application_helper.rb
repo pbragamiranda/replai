@@ -8,6 +8,8 @@ module ApplicationHelper
 		  config.access_token        = ACCESS_TOKEN
 		  config.access_token_secret = ACCESS_TOKEN_SECRET
 		end
-		client.update("Olá, @#{twitter_account}. Tem uma pedido de acesso informação bla bla")
+		client.update("Olá, @#{twitter_account}. 
+									Foi feito uma pedido de acesso informação para você. 
+									Você tem 20 dias pra responder ;)")
 	end
 end
