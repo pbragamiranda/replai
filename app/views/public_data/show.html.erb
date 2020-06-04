@@ -6,11 +6,11 @@
 		<p class="btn btn-outline-light"><%= @public_datum.power %></p>
 
 		<h3>Município: <%= @public_datum.city %></h3>
-		
+
 		<h3>Descrição dos Dados</h3>
 		<p><%= @public_datum.description %></p>
-		
-		
+
+
 		<div style= "text-align: right">
 			<p>Formato: <%= @public_datum.format %></p>
 			<%= link_to "Download dos Dados", "#" , class: "btn btn-primary btn-lg"%>
@@ -20,11 +20,13 @@
 </div>
 <div>
 	<div class="container-comentario">
-		<h1>Comentários</h1>
-		<br>
-		<p class="rounded border">Yuri: Arquivo bem estruturado, interessante ver o padrão de gasto das diárias.</p>
-		<p class="rounded border">Leandro: Assessor do PSL gosta de viajar mesmo hein..</p>
+    <%= link_to "Comentar", new_public_datum_comment_path(@public_datum), class: "btn btn-primary" %>
+    <h2>Reviews</h2>
+      <% @public_datum.comments.each do |comment| %>
+        <p><%= comment.content %></p>
+        <%# = link_to 'delete', review_path(review), method: :delete %>
+        <hr>
+      <% end %>
 	</div>
 </div>
-
 
