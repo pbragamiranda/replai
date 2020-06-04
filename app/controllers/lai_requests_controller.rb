@@ -1,6 +1,7 @@
 class LaiRequestsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
   before_action :set_lai_request, only: [:submit, :show]
+  include ApplicationHelper 
 
   def index
     @lai_requests = LaiRequest.all
@@ -42,6 +43,7 @@ class LaiRequestsController < ApplicationController
 
     if @lai_request.save!
       render :submit
+      send_tweet(@lai_request.branch.twitter)
     else
       redirect_to lai_request_path(@lai_request), notice: "you missed something"
     end
