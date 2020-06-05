@@ -14,7 +14,7 @@
         time:          :horizontal_multi_select
       } do |f| %>
       <%= f.input :title,
-                  label: "Título da Solicitação",
+                  label: "Título",
                   :hint => "Seja  breve e preciso. ex: 'Valor Diárias Vereadores Mangaratiba' " %>
       <%= f.input :city_government_agency_id, collection: CityGovernmentAgency.all, label_method: :city_name, value_method: :id, label: "Cidade"%>
       <%= f.association :branch, label_method: :branch_name, value_method: :id, label: "Orgão", wrapper_html: { class: "hidden", id: "branch_wrapper" } %>
@@ -27,7 +27,7 @@
       <%= f.input :anonymity, label: "repLAI anônimo?", :as => :boolean %>
       <%= f.input :format,
                   label: "Formato do arquivo" %>
-      <%= f.submit "Finalizar formulário", class: "btn btn-primary" %>
+      <%= f.submit "Finalizar pedido", class: "btn btn-primary" %>
     <% end %>
 </div>
 
