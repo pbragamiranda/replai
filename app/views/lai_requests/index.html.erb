@@ -1,23 +1,25 @@
-<div>
-<h1><span class="text-secondary">Suas solicitações de acesso a informação:</span><br></h1>
-</div>
-<div class="container-lai-request">
-  <div class="lai-request">
-      <% @lai_requests.each do |request| %>
-        <div class="card-product rounded mb-3 p-3">
-          <div>
-            <%= link_to lai_request_path(request) do %>
+
+<h1 class="dashboard-head"><span class="text-secondary">Olá, <%= current_user.first_name %></span><br></h1>
+<div class="container-user-dashboard">
+  <div>
+    <% @lai_requests.each do |request| %>
+        <%= link_to lai_request_path(request), style: "text-decoration:none;" do %>
+          <div class="dashboard-card hvr-grow">
+            <div>
               <h4><%= request.title %></h4>
-            <% end %>
-            <p>Categoria - <%= request.category %></p>
-            <p>Status - <%= request.status %></p>
-            <% if request.deadline %>
-              <p>Deadline - <%= request.deadline.strftime("%d/%m/%Y") %></p>
-            <% end %>
-            
+              <p>Categoria - <%= request.category %></p>
+              <% if request.deadline %>
+                <p>Deadline - <%= request.deadline.strftime("%d/%m/%Y") %></p>
+              <% end %>
+            </div>
+            <div class="icons">
+              <i class="fas fa-clipboard-list progress-icon" id="Step-1"><p>Editando</p></i>
+              <i class="far fa-paper-plane progress-icon" id="Step-2"><p>Enviado</p></i>
+              <i class="fas fa-exclamation-triangle progress-icon" id="Step-3"><p>Atrasado</p></i>
+              <i class="fas fa-check-circle progress-icon" id="Step-4"><p>Recebido</p></i>
+            </div>
           </div>
-        </div>
-      <% end %>
-    </div>
+        <% end %>
+    <% end %>
   </div>
 </div>

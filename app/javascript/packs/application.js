@@ -3,6 +3,7 @@ import "bootstrap";
 import { loadHighlightText } from '../components/home';
 import { initUpdateNavbarOnScroll } from '../components/navbar';
 import { loadDynamicBannerText } from '../components/banner';
+import { generateBranchDropDown } from '../components/lai-form';
 
 
 require("@rails/ujs").start()
@@ -17,5 +18,7 @@ document.addEventListener('turbolinks:load', () => {
   // Call your JS functions here
   loadDynamicBannerText();
   initUpdateNavbarOnScroll();
+  loadHighlightText();
+  generateBranchDropDown();
 });
 

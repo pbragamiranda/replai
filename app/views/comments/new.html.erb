@@ -1,0 +1,6 @@
+<%= simple_form_for [@public_datum, @comment] do |f| %>
+  <%= f.input :content %>
+  <%= f.submit class: 'btn btn-primary' %>
+<% end %>
+
+<%= link_to 'Back', public_datum_path(@public_datum), class: 'btn' %>
