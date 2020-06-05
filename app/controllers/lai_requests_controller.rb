@@ -1,7 +1,7 @@
 class LaiRequestsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
   before_action :set_lai_request, only: [:submit, :show]
-  include ApplicationHelper 
+  include ApplicationHelper
 
   def index
     @lai_requests = LaiRequest.all
@@ -39,7 +39,7 @@ class LaiRequestsController < ApplicationController
   def submit
     # enviar o email pro orgaos fazer depois
     @lai_request.deadline = 20.days.from_now
-    @lai_request.status = "Em andamento"
+    @lai_request.status = "Enviado"
 
     if @lai_request.save!
       render :submit

@@ -10,10 +10,13 @@
 }
 
 .dashboard-card {
+  display:flex;
+  justify-content: space-between;
   background-color: white;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   margin: 3px auto;
   padding: 12px;
+  text-decoration: none;
   p {
     margin-top: 0;
     margin-bottom: 0rem;
@@ -33,4 +36,21 @@
 .hvr-grow:focus,
 .hvr-grow:active {
     transform: scale(1.04);
+}
+
+.icons{
+  align-self:center;
+}
+
+.progress-icon{
+  text-align:center;
+  margin: 0px 4px;
+}
+
+.active-icon{
+
+}
+
+.inactive-icon{
+
 }
