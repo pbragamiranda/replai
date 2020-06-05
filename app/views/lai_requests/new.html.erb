@@ -16,8 +16,8 @@
       <%= f.input :title,
                   label: "Título da Solicitação",
                   :hint => "Seja  breve e preciso. ex: 'Valor Diárias Vereadores Mangaratiba' " %>
-      <%= f.association :branch, label_method: :municipality, value_method: :id, label: "Cidade"%>
-      <%= f.association :branch, label_method: :branch_name, value_method: :id, label: "Orgão"%>
+      <%= f.input :city_government_agency_id, collection: CityGovernmentAgency.all, label_method: :city_name, value_method: :id, label: "Cidade"%>
+      <%= f.association :branch, label_method: :branch_name, value_method: :id, label: "Orgão", wrapper_html: { class: "hidden", id: "branch_wrapper" } %>
       <%= f.input :description,
                   label: "Descrição",
                   :hint => "Adicione uma breve descrição sobre o conjunto de dados que você quer solicitar, especificando o conteúdo e a data em que os dados forem recebidos do poder público." %>

@@ -1,4 +1,3 @@
-
 const initUpdateNavbarOnScroll = () => {
   console.log('ok');
   const navbar = document.querySelector('.navbar-replai');

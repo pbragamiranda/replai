@@ -15,4 +15,5 @@ Rails.application.routes.draw do
     end
   	resources :request_answers, only: [:new, :create]
   end
+  resources :city_government_agencies, only: [ :show ]
 end

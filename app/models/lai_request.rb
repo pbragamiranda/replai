@@ -9,5 +9,5 @@ class LaiRequest < ApplicationRecord
   validates :anonymity, inclusion: {in:ANONYMITY }
 
 
-  attr_accessor :schrubles
+  attr_accessor :city_government_agency_id
 end
