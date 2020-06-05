@@ -44,7 +44,9 @@
                   label: "Selecione o arquivo que deseja tornar público",
                   as: :file %>
       <div>
-        <%= f.submit "Compartilhar dado público", class: "btn btn-primary btn-lg" %>
+        <%= f.submit "Compartilhar dado público", class: "btn btn-primary" %>
+        <%= f.submit "Cancelar", class: "btn btn-secondary" %>
+
       </div>
     <% end %>
 </div>
