@@ -18,13 +18,39 @@
                   :hint => "Seja  breve e preciso. ex: 'Valor Diárias Vereadores Mangaratiba' " %>
       <%= f.input :description,
                   label: "Descrição",
-                  :hint => "Adicione uma breve descrição sobre o conjunto de dados, especificando o conteúdo e a data em que os dados forem recebidos do poder público." %>
+                  :hint => "Adicione uma breve descrição. Ex: 'Diárias pagas a vereadores em decorrência de eventos institucionais realizados nos últimos 3 anos'" %>
       <%= f.input :category,
-                  label: "Categoria" %>
+                  label: "Categoria",
+                  collection: LaiRequest::CATEGORIES %>
+      <%= f.input :city_government_agency_id, collection: CityGovernmentAgency.all, label_method: :city_name, value_method: :id, label: "Cidade"%>
+      <%= f.association :branch, label_method: :branch_name, value_method: :id, label: "Órgão", wrapper_html: { class: "hidden", id: "branch_wrapper" } %>
+
+
       <%#= f.input :city_government_agency_id, collection: CityGovernmentAgency.all, label_method: :city_name, value_method: :id, label: "Cidade"%>
       <%#= f.association :branch, label_method: :branch_name, value_method: :id, label: "Órgão", wrapper_html: { class: "hidden", id: "branch_wrapper" } %>
 
+
+      <%= f.input :format,
+                  label: "Formato",
+                  collection: ["PDF", "CSV", "XLS", "XLSX", "HTML", "PNG", "GEOJSON", "JSON", "ODS", "TXT", "ZIP"],
+                  include_blank: false,
+                  include_hidden: false %>
+      <%= f.input :dataset,
+                  label: "Selecione o arquivo que deseja tornar público",
+                  as: :file %>
+      <div>
+        <%= f.submit "Compartilhar dado público", class: "btn btn-primary" %>
+        <%= f.submit "Cancelar", class: "btn btn-secondary" %>
+
+      </div>
+    <% end %>
+</div>
+    <%#= f.association :branch, label_method: :branch_name, value_method: :id, label: "Orgão"%>
       <!-- <p class="custom_label">Esfera</p>
+    <%#= f.input :city ,
+                  label: "Município" %>
+      <%#= f.input :state,
+                  label: "Estado" %> -->
 
       <%#= f.collection_radio_buttons :level,
                                      [['Municipal', 'Municipal'],
@@ -41,24 +67,3 @@
                                       :first, :last,
                                       input_html: { class: 'btn btn-primary' },
                                       item_wrapper_class: :block_radio_button_collection %> -->
-      <%= f.association :branch, label_method: :branch_name, value_method: :id, label: "Orgão"%>
-      <%= f.input :city ,
-                  label: "Município" %>
-      <%= f.input :state,
-                  label: "Estado" %>
-      <%= f.input :format,
-                  label: "Formato",
-                  collection: ["PDF", "CSV", "XLS", "XLSX", "HTML", "PNG", "GEOJSON", "JSON", "ODS", "TXT", "ZIP"],
-                  include_blank: false,
-                  include_hidden: false %>
-      <%= f.input :dataset,
-                  label: "Selecione o arquivo que deseja tornar público",
-                  as: :file %>
-      <div>
-        <%= f.submit "Compartilhar dado público", class: "btn btn-primary" %>
-        <%= f.submit "Cancelar", class: "btn btn-secondary" %>
-
-      </div>
-    <% end %>
-</div>
-
