@@ -1,0 +1,5 @@
+meta_product_name: "repLai"
+meta_title: "repLAI - facilitando o acesso aos dados públicos."
+meta_description: "Desejamos fomentar e resgatar a participação da sociedade civil organizada no debate público. Participe, cobre, opine e ajude a construir o Estado do Rio de Janeiro que queremos."
+meta_image: "banner-info.jpeg" # should exist in `app/assets/images/`
+twitter_account: "@replaireplai"   # required for Twitter Cards
