@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :public_data, only: [:new, :create, :index, :show, :destroy] do
   	resources :comments, only: [:new, :create]
   end
-  resources :lai_requests, only: [:new, :create, :index, :show, :destroy] do
+  resources :lai_requests, only: [:new, :create, :index, :show, :destroy, :edit, :update] do
     member do
       patch 'submit'
       get 'submit'

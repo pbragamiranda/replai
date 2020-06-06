@@ -1,16 +1,10 @@
 class LaiRequestsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
-  before_action :set_lai_request, only: [:submit, :show]
+  before_action :set_lai_request, only: [:submit, :show, :edit, :update, :destroy]
   include ApplicationHelper
 
   def index
     @lai_requests = LaiRequest.all.order(created_at: :desc)
-    # @public_data = PublicDatum.all.order(created_at: :desc)
-    # if params[:query].present?
-    #   @products = Product.search_by_name_category_description(params[:query]).order(created_at: :desc)
-    # else
-    #   @products = Product.all.order(created_at: :desc)
-    # end
   end
 
   def new
@@ -32,11 +26,21 @@ class LaiRequestsController < ApplicationController
     end
   end
 
-  def show
+  def edit
   end
 
+  def update
+    @lai_request.update(lai_request_params)
+    redirect_to lai_request_path(@lai_request)
+  end
 
+  def destroy
+    @lai_request.destroy
+    redirect_to lai_requests_path
+  end
 
+  def show
+  end
 
   def submit
     unless params[:view]
