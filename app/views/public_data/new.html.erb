@@ -21,9 +21,12 @@
                   :hint => "Adicione uma breve descrição sobre o conjunto de dados, especificando o conteúdo e a data em que os dados forem recebidos do poder público." %>
       <%= f.input :category,
                   label: "Categoria" %>
-      <p class="custom_label">Esfera</p>
+      <%#= f.input :city_government_agency_id, collection: CityGovernmentAgency.all, label_method: :city_name, value_method: :id, label: "Cidade"%>
+      <%#= f.association :branch, label_method: :branch_name, value_method: :id, label: "Órgão", wrapper_html: { class: "hidden", id: "branch_wrapper" } %>
 
-      <%= f.collection_radio_buttons :level,
+      <!-- <p class="custom_label">Esfera</p>
+
+      <%#= f.collection_radio_buttons :level,
                                      [['Municipal', 'Municipal'],
                                      ['Estadual', 'Estadual'],
                                      ['Federal', 'Federal']],
@@ -31,13 +34,13 @@
                                      wrapper_html: { class: 'btn btn-primary' },
                                      item_wrapper_class: :block_radio_button_collection %>
       <p class="custom_label">Poder</p>
-      <%= f.collection_radio_buttons :power,
+      <%#= f.collection_radio_buttons :power,
                                       [['Executivo', 'Executivo'],
                                       ['Legislativo', 'Legislativo'],
                                       ['Judiciário', 'Judiciário']],
                                       :first, :last,
                                       input_html: { class: 'btn btn-primary' },
-                                      item_wrapper_class: :block_radio_button_collection %>
+                                      item_wrapper_class: :block_radio_button_collection %> -->
       <%= f.association :branch, label_method: :branch_name, value_method: :id, label: "Orgão"%>
       <%= f.input :city ,
                   label: "Município" %>
