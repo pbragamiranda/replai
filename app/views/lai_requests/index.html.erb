@@ -1,25 +1,25 @@
 
-<h1 class="dashboard-head"><span class="text-secondary">Olá, <%= current_user.first_name %></span><br></h1>
+<h1 class="dashboard-head"><span class="text-secondary">Olá, <%= current_user.first_name %>! Esses são seus pedidos:</span><br></h1>
 <div class="container-user-dashboard">
-  <div>
+  <!-- <div> -->
+    <div class="row">
     <% @lai_requests.each do |request| %>
-        <%= link_to lai_request_path(request), style: "text-decoration:none;" do %>
-          <div class="dashboard-card hvr-grow">
-            <div>
-              <h4><%= request.title %></h4>
-              <p>Categoria - <%= request.category %></p>
-              <% if request.deadline %>
-                <p>Deadline - <%= request.deadline.strftime("%d/%m/%Y") %></p>
-              <% end %>
+      <div class="col-12">
+      <%= link_to lai_request_path(request), style: "text-decoration:none;" do %>
+            <div class="dashboard-card hvr-grow">
+                  <h4><%= request.title.truncate(70) %></h4>
+                  <p><%= request.branch.city_government_agency.city_name %></p>
+                <div style="display: flex; justify-content: space-between;">
+                  <!-- <h4><%#= request.title.truncate(20) %></h4> -->
+                  <p><span style="font-weight: bold;">Categoria:</span> <%= request.category %></p>
+                  <% if request.deadline %>
+                    <p>Prazo - <%= request.deadline.strftime("%d/%m/%Y") %></p>
+                  <% end %>
+                </div>
             </div>
-            <div class="icons">
-              <i class="fas fa-clipboard-list progress-icon" id="Step-1"><p>Editando</p></i>
-              <i class="far fa-paper-plane progress-icon" id="Step-2"><p>Enviado</p></i>
-              <i class="fas fa-exclamation-triangle progress-icon" id="Step-3"><p>Atrasado</p></i>
-              <i class="fas fa-check-circle progress-icon" id="Step-4"><p>Recebido</p></i>
-            </div>
+      <% end %>
           </div>
-        <% end %>
     <% end %>
-  </div>
+        </div>
+  <!-- </div>/ -->
 </div>

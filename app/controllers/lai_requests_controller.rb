@@ -4,7 +4,7 @@ class LaiRequestsController < ApplicationController
   include ApplicationHelper
 
   def index
-    @lai_requests = LaiRequest.all
+    @lai_requests = LaiRequest.all.order(created_at: :desc)
     # @public_data = PublicDatum.all.order(created_at: :desc)
     # if params[:query].present?
     #   @products = Product.search_by_name_category_description(params[:query]).order(created_at: :desc)
@@ -39,15 +39,20 @@ class LaiRequestsController < ApplicationController
 
 
   def submit
-    # enviar o email pro orgaos fazer depois
-    @lai_request.deadline = 20.days.from_now
-    @lai_request.status = "Enviado"
-
-    if @lai_request.save!
-      render :submit
-      send_tweet(@lai_request.branch.twitter)
-    else
-      redirect_to lai_request_path(@lai_request), notice: "you missed something"
+    unless params[:view]
+      # enviar o email pro orgaos fazer depois
+      @lai_request.deadline = 20.days.from_now
+      @lai_request.status = "Enviado"
+      if @lai_request.save!
+        render :submit
+        if @lai_request.branch.twitter.nil?
+          send_tweet(@lai_request.branch.city_government_agency.city_name)
+        else
+          send_tweet(@lai_request.branch.twitter)
+        end
+      else
+        redirect_to lai_request_path(@lai_request), notice: "you missed something"
+      end
     end
   end
 

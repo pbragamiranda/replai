@@ -1,8 +1,7 @@
 .container-user-dashboard {
   color: black;
-  height: 100vh;
   background-color: $dark-blue;
-  padding: 40px 150px;
+  padding: 40px 250px;
 }
 
 .dashboard-head{
@@ -11,16 +10,20 @@
 
 .dashboard-card {
   display:flex;
+  flex-direction: column;
   justify-content: space-between;
-  background-color: white;
+  background-color: $dark-gray;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   margin: 3px auto;
   padding: 12px;
   text-decoration: none;
+  color:white;
   p {
     margin-top: 0;
     margin-bottom: 0rem;
   }
+  border-radius: 4px;
+
 }
 
 .hvr-grow {
