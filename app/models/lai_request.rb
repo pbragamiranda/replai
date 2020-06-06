@@ -6,7 +6,7 @@ class LaiRequest < ApplicationRecord
   CATEGORIES = %w[Transparência Financeira Saúde Educação Infraestrutura Segurança]
   validates :category, presence: true, inclusion: { in: CATEGORIES }
   ANONYMITY = [true, false]
-  validates :anonymity, inclusion: {in:ANONYMITY }
+  validates :anonymity, inclusion: { in: ANONYMITY }
 
 
   attr_accessor :city_government_agency_id
