@@ -15,6 +15,9 @@
 			<p>Formato: <%= @public_datum.format %></p>
 			<%= link_to "Download dos Dados", "#" , class: "btn btn-primary btn-lg"%>
 		</div>
+	</div>
+	<img class="container-right" src='https://api.mapbox.com/styles/v1/mapbox/light-v10/static/-42.3992,-22.3201,5.57,0/300x200?access_token=pk.eyJ1IjoicGJyYWdhbWlyYW5kYSIsImEiOiJjazg5YzJva2EwNWZzM2ducnZlcGdvcXN6In0.NPUtKwAk2yFbBvv0ZYK1Kw'>
+</div>
 <div>
 	<div class="container-comentario">
     <%= link_to "Comentar", new_public_datum_comment_path(@public_datum), class: "btn btn-primary" %>

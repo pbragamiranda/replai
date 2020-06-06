@@ -1,9 +1,13 @@
 class PublicDatum < ApplicationRecord
 
   has_one_attached :dataset
+  validates :dataset, presence: true
   belongs_to :user
   belongs_to :branch
   has_many :comments, dependent: :destroy
+  validates :category, presence: true
+  validates :name, presence: true
+  validates :description, presence: true
 
   include PgSearch::Model
   pg_search_scope :search_by_name_category_description,

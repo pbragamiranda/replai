@@ -9,7 +9,7 @@ LaiRequest.destroy_all
 PublicDatum.destroy_all
 Branch.destroy_all
 CityGovernmentAgency.destroy_all
-Comment.destroy_all
+# Comment.destroy_all
 
 #Creating new user
 puts 'Creating User'
