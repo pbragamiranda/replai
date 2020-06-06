@@ -4,7 +4,7 @@ class LaiRequestsController < ApplicationController
   include ApplicationHelper
 
   def index
-    @lai_requests = LaiRequest.all
+    @lai_requests = LaiRequest.all.order(created_at: :desc)
     # @public_data = PublicDatum.all.order(created_at: :desc)
     # if params[:query].present?
     #   @products = Product.search_by_name_category_description(params[:query]).order(created_at: :desc)

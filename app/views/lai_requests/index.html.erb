@@ -1,19 +1,24 @@
 
 <h1 class="dashboard-head"><span class="text-secondary">Olá, <%= current_user.first_name %></span><br></h1>
 <div class="container-user-dashboard">
-  <div>
+  <!-- <div> -->
+    <div class="row justify-content-around">
     <% @lai_requests.each do |request| %>
-        <%= link_to lai_request_path(request), style: "text-decoration:none;" do %>
-          <div class="dashboard-card hvr-grow">
-            <div>
-              <h4><%= request.title %></h4>
-              <p>Categoria - <%= request.category %></p>
-              <% if request.deadline %>
-                <p>Deadline - <%= request.deadline.strftime("%d/%m/%Y") %></p>
-              <% end %>
+      <div class="col-6">
+      <%= link_to lai_request_path(request), style: "text-decoration:none;" do %>
+            <div class="dashboard-card hvr-grow">
+                <div style="display: flex; justify-content: space-between;">
+                  <h4><%= request.title.truncate(20) %></h4>
+                  <% if request.deadline %>
+                    <p>Prazo - <%= request.deadline.strftime("%d/%m/%Y") %></p>
+                  <% end %>
+                </div>
+                <p><%= request.branch.city_government_agency.city_name %></p>
+                <p><span style="font-weight: bold;">Categoria:</span> <%= request.category %></p>
             </div>
+      <% end %>
           </div>
-        <% end %>
     <% end %>
-  </div>
+        </div>
+  <!-- </div>/ -->
 </div>
