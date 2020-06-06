@@ -2,3 +2,31 @@
 @import "home";
 @import "lai-request";
 @import "user-dashboard";
+
+.public-datum {
+  overflow: hidden;
+  height: 120px;
+  width: 900px;
+  align-items: center;
+  min-height: min-content;
+  padding-top: 50px
+}
+
+
+.public-datum h2 {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.public-datum p {
+  font-size: 14px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.data-card {
+box-shadow: 0 0 15px white rgba(0,0,0,0.2);
+}

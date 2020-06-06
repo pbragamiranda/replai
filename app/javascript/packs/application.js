@@ -4,6 +4,7 @@ import { loadHighlightText } from '../components/home';
 import { initUpdateNavbarOnScroll } from '../components/navbar';
 import { loadDynamicBannerText } from '../components/banner';
 import { generateBranchDropDown } from '../components/lai-form';
+import { initModal } from '../components/init_modal';
 
 
 require("@rails/ujs").start()
@@ -20,5 +21,6 @@ document.addEventListener('turbolinks:load', () => {
   initUpdateNavbarOnScroll();
   loadHighlightText();
   generateBranchDropDown();
+  initModal();
 });
 

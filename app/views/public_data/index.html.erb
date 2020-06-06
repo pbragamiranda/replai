@@ -1,26 +1,35 @@
 
 <div class="filter-bar" style="padding:8px 0px;">
   <% if @public_data.empty? %>
-    <p>Não há resultados para: "<%= params[:query] %>"</p>
-  <% else params[:query]%>
-    <p>Resultados para: "<%= params[:query] %>"</p>
+  <p>Não há resultados para: "<%= params[:query] %>"</p>
+  <% elsif params[:query]%>
+  <p>Resultados para: "<%= params[:query] %>"</p>
+  <% else %>
+  <p></p>
+  <div class="search-bar d-flex mt-3">
+  <%= form_tag public_data_path, method: :get do %>
+  <%= text_field_tag :query, params[:query], class: "form-control input", placeholder: "Qual dado público você busca?" %>
+  <% end %>
+  <%= submit_tag "Pesquisar", class: "btn btn-primary" %>
+</div>
   <% end %>
 </div>
+
 <div class="container-public-datum">
   <div class="public-datum">
-    	<% @public_data.each do |dataset| %>
-    		<div class="card-product rounded mb-3">
+   <% @public_data.each do |dataset| %>
+   <div class="card-product rounded mb-3">
 
-          <img src="https://via.placeholder.com/30" alt="">
-          <div>
-            <%= link_to public_datum_path(dataset) do %>
-            <h2><%= dataset.name %></h2>
-            <p><%= dataset.category %></p>
-            <% end %>
-          </div>
-        </div>
-    	<% end %>
+    <!-- <img src="https://via.placeholder.com/30" alt=""> -->
+    <div class="data-card">
+      <%= link_to public_datum_path(dataset) do %>
+      <h2><%= dataset.name %></h2>
+      <p><%= dataset.category %></p>
+      <% end %>
+    </div>
   </div>
+  <% end %>
+</div>
 </div>
 
 
