@@ -1,8 +1,8 @@
 <div class="container-form">
-  <h1>Dê o seu repLAI!</h1>
+  <h1>Crie seu pedido de acesso à informação</h1>
 
     <%= simple_form_for @lai_request,
-        wrapper: :horizontal_form,
+        wrapper: :vertical_form,
         wrapper_mappings: {
         boolean:       :horizontal_boolean,
         check_boxes:   :horizontal_collection,
@@ -14,20 +14,31 @@
         time:          :horizontal_multi_select
       } do |f| %>
       <%= f.input :title,
-                  label: "Título da Solicitação",
-                  :hint => "Seja  breve e preciso. ex: 'Valor Diárias Vereadores Mangaratiba' " %>
-      <%= f.input :city_government_agency_id, collection: CityGovernmentAgency.all, label_method: :city_name, value_method: :id, label: "Cidade"%>
-      <%= f.association :branch, label_method: :branch_name, value_method: :id, label: "Orgão", wrapper_html: { class: "hidden", id: "branch_wrapper" } %>
+                  label: "Título",
+                  :hint => "Seja  breve e preciso. Ex: 'Valor Diárias Vereadores Mangaratiba' " %>
       <%= f.input :description,
                   label: "Descrição",
-                  :hint => "Adicione uma breve descrição sobre o conjunto de dados que você quer solicitar, especificando o conteúdo e a data em que os dados forem recebidos do poder público." %>
+                  :hint => "Adicione uma breve descrição. Ex: 'Diárias pagas a vereadores em decorrência de eventos institucionais realizados nos últimos 3 anos'" %>
       <%= f.input :category,
                   label: "Categoria",
                   collection: LaiRequest::CATEGORIES %>
-      <%= f.input :anonymity, label: "repLAI anônimo?", :as => :boolean %>
+      <%= f.input :city_government_agency_id, collection: CityGovernmentAgency.all, label_method: :city_name, value_method: :id, label: "Cidade"%>
+      <%= f.association :branch, label_method: :branch_name, value_method: :id, label: "Órgão", wrapper_html: { class: "hidden", id: "branch_wrapper" } %>
+      <%#= f.input :anonymity, :as => :boolean %>
+      <!-- <p>solicitar anonimamente?</p> -->
       <%= f.input :format,
-                  label: "Formato do arquivo" %>
-      <%= f.submit "Finalizar formulário", class: "btn btn-primary" %>
+                  label: "Formato do arquivo",
+                  collection: ["PDF", "CSV", "XLS", "XLSX", "HTML", "PNG", "GEOJSON", "JSON", "ODS", "TXT", "ZIP"],
+                  include_blank: false,
+                  include_hidden: false %>
+      <div class="container_check">
+        <input type="checkbox" id="anonimo_check" name="anonymity" value="true">
+        <label class="last-input">Solicitar anonimato</label><br>
+      </div>
+      <div class="buttons">
+        <%= f.submit "Finalizar pedido", class: "btn btn-primary" %>
+        <%= f.submit "Cancelar", class: "btn btn-secondary" %>
+      </div>
     <% end %>
 </div>
 

@@ -1,9 +1,9 @@
 import Rails from '@rails/ujs';
 
 const generateBranchDropDown = () => {
-  const branchDropDown = document.getElementById("lai_request_branch_id");
+  const branchDropDown = document.getElementById("lai_request_branch_id") || document.getElementById("public_datum_branch_id");
   if (branchDropDown) {
-    const cityDropDown = document.getElementById("lai_request_city_government_agency_id");
+    const cityDropDown = document.getElementById("lai_request_city_government_agency_id") || document.getElementById("public_datum_city_government_agency_id");
     if (cityDropDown) {
       cityDropDown.addEventListener("change", (event) => {
         branchDropDown.innerHTML = "";
