@@ -1,7 +1,7 @@
 class PublicDatum < ApplicationRecord
 
   has_one_attached :dataset
-  validates :dataset, presence: true
+  # validates :dataset, presence: true
   belongs_to :user
   belongs_to :branch
   has_many :comments, dependent: :destroy
