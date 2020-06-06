@@ -16,7 +16,6 @@ class LaiRequestsController < ApplicationController
     @lai_request = LaiRequest.new(lai_request_params)
     anonymity = params[:anonymity] == "true"
     @lai_request.anonymity = anonymity
-    raise
     @lai_request.status = "Editando"
     @lai_request.user_id = current_user.id
     authorize @lai_request
@@ -39,7 +38,6 @@ class LaiRequestsController < ApplicationController
     @lai_request.destroy
     redirect_to lai_requests_path
   end
-
 
   def show
   end

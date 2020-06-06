@@ -15,6 +15,11 @@
   color: white;
 }
 
+.navbar-menu > ul {
+  min-height: 40px;
+}
+
+    
 
 .navbar-menu li {
   list-style: none;
@@ -26,8 +31,8 @@
 .navbar-menu li:hover a {
   text-decoration: none;
   // color: gray;
-  content:'';
-  height: 0.2;
+  // content:'';
+  // height: 0.2px;
   left: 0;
   bottom: 5px; /*Change this to increase/decrease distance*/
   border-bottom: 3px solid black;
@@ -43,6 +48,11 @@
  text-transform: uppercase;
  font-size: 14px;
 }
+
+
+
+
+
 
 // .navbar-replai-white {
 //   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
