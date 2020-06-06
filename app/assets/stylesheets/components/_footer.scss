@@ -4,11 +4,12 @@ html {
 }
 body {
   /* Margin bottom by footer height */
-  margin-bottom: 60px;
+  // margin-bottom: 60px;
 }
 .footer {
   position: absolute;
   width: 100%;
+  // display: flex;
   /* Set the fixed height of the footer here */
   height: 200px;
   line-height: 60px; /* Vertically center the text there */
@@ -20,11 +21,19 @@ body {
 .footer-links a {
   color: white;
   text-decoration: none;
-  font-size: 36px;
+  font-size: 24px;
   padding: 0px 10px;
+  margin-top: 0px;
 }
 .footer-links a:hover {
   opacity: 0.1;
+}
+
+.footer p {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 .footer {
@@ -35,5 +44,5 @@ body {
 
 .footer-logo img {
   width: 50px;
-  padding-left: 0;
+  // padding-left: 0;
 }
