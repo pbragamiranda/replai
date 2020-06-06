@@ -11,6 +11,28 @@
 	padding: 32px;
 	width: 800px ;
   background-color: $dark-blue;
+  box-shadow: 0 5px 10px 0 rgba(0,0,0,.4);
+  margin: 20px auto;
+
+}
+
+.container-form h1 {
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.container-form label {
+  margin-bottom: 0px;
+}
+
+.container-form input {
+  border-radius: 5px;
+}
+.container-form select {
+  border-radius: 5px;
+}
+.container-form textarea {
+  border-radius: 5px;
 }
 
 

@@ -11,5 +11,5 @@ class PublicDatum < ApplicationRecord
     using: {
       tsearch: { prefix: true, any_word: true} # <-- now `superman batm` will return something!
     }
-
+  attr_accessor :city_government_agency_id
 end
