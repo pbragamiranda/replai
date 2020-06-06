@@ -1,17 +1,19 @@
-<div class="container-lai-request">
+<div class="container-form">
   <div class="lai-request">
 
-    <% if @lai_request.status == "Editando" %>
-      <% if policy(@lai_request).edit? %>
-        <%= link_to edit_lai_request_path(@lai_request), class: "far fa-edit mb-1 mr-2", :style=>"color:white;" do %>
+    <div style=" text-align:right;">
+      <% if @lai_request.status == "Editando" %>
+        <% if policy(@lai_request).edit? %>
+          <%= link_to edit_lai_request_path(@lai_request), class: "far fa-edit mb-1 mr-2", :style=>"color:white;" do %>
+          <% end %>
+        <% end %>
+        <% if policy(@lai_request).destroy? %>
+          <%= link_to @lai_request, method: :delete, data: { confirm: 'Are you sure?'} do %>
+            <i class="fas fa-trash-alt" style="color:white;"></i>
+          <% end %>
         <% end %>
       <% end %>
-      <% if policy(@lai_request).destroy? %>
-        <%= link_to @lai_request, method: :delete, data: { confirm: 'Are you sure?'} do %>
-          <i class="fas fa-trash-alt" style="color:white;"></i>
-        <% end %>
-      <% end %>
-    <% end %>
+    </div>
 
     <% if @lai_request.status == "Editando" %>
       <h1 class="text-center" style="padding-top:16px;">Seu LAIRequest: revise antes de enviar</h1>
@@ -36,9 +38,9 @@
     <p style="padding-bottom: 16px;"><%= @lai_request.description %></p>
 
     <div style="display:flex;  justify-content: space-between;">
-      <div style="text-align: left;">
-        <%= link_to lai_requests_path, class: "btn btn-primary btn-lg" do %>
-          Voltar para pedidos
+      <div style="text-align: left; font-size:32px; color: white;">
+        <%= link_to lai_requests_path do %>
+          <i class="fas fa-arrow-circle-left"></i>
         <% end %>
       </div>
       <div style= "text-align: right">
