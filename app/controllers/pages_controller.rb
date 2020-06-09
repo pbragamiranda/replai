@@ -3,4 +3,7 @@ class PagesController < ApplicationController
 
   def home
   end
+
+  def sobre_a_lai
+  end
 end

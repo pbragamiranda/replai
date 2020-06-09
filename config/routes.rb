@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
+  get '/sobre-a-lai', to: "pages#sobre_a_lai"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :public_data, only: [:new, :create, :index, :show, :destroy] do
   	resources :comments, only: [:new, :create]
