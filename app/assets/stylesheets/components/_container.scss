@@ -4,16 +4,15 @@
   position: relative;
 }
 
-
 .container-form {
-	color: white;
+	color: black;
 	margin: auto;
 	padding: 32px;
 	width: 800px ;
-  background-color: $dark-blue;
+  background-color: $light-gray;
   box-shadow: 0 5px 10px 0 rgba(0,0,0,.4);
   margin: 20px auto;
-
+  border: solid thin;
 }
 
 .container-form h1 {
