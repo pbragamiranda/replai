@@ -1,36 +1,48 @@
-<h1 class="dashboard-head"><span class="text-secondary">Olá, <%= current_user.first_name %>! Esses são seus pedidos:</span><br></h1>
-
-
 <div class="container-user-dashboard">
-  <div class="row">
+  <h1 class="p-4"><span class="text-secondary">Olá, <%= current_user.first_name %>! Esses são seus pedidos:</span><br></h1>
+  <div class="row justify-content-center">
 
 
     <div id="accordion">
       <div class="col-12">
         <% @lai_requests.each_with_index do |request, index| %>
 
-            <div class="dashboard-card">
-              <div class="card-header" id="heading<%= index.to_s%>">
-                <h5 class="mb-0">
-                  <button class="" data-toggle="collapse" data-target="#collapse<%= index.to_s  %>" aria-expanded="true" aria-controls="collapse<%= index.to_s  %>">
-                    <%= request.title.truncate(70) %>
+            <!-- <div class=""> -->
+              <div class="" id="heading<%= index.to_s%>">
+                  <a class="dashboard-card" data-toggle="collapse" data-target="#collapse<%= index.to_s  %>" aria-expanded="false" aria-controls="collapse<%= index.to_s  %>">
+                    <%= request.title.truncate(70).capitalize %>
                     <% if request.deadline %>
                       <p>Prazo - <%= request.deadline.strftime("%d/%m/%Y") %></p>
                     <% end %>
-                  </button>
-                </h5>
+
+                <div style=" text-align:right;">
+                  <% if request.status == "Editando" %>
+                    <% if policy(request).edit? %>
+                      <%= link_to edit_lai_request_path(request), class: "far fa-edit mb-1 mr-2", :style=>"color:blue;" do %>
+                      <% end %>
+                    <% end %>
+                    <% if policy(request).destroy? %>
+                      <%= link_to request, method: :delete, data: { confirm: 'Are you sure?'} do %>
+                        <i class="fas fa-trash-alt" style="color:blue;"></i>
+                      <% end %>
+                    <% end %>
+                  <% end %>
+                </div>
+                  </a>
+
+
               </div>
-              <div id="collapse<%= index.to_s  %>" class="collapse show" aria-labelledby="heading<%= index.to_s %>" data-parent="#accordion">
-                <div class="card-body">
+              <div id="collapse<%= index.to_s  %>" class="collapse" aria-labelledby="heading<%= index.to_s %>" data-parent="#accordion">
+                <div class="card-expansive">
                     <p><span style="font-weight: bold;">Categoria:</span> <%= request.category %></p>
                     <p><%= request.branch.city_government_agency.city_name %></p>
                     <p><%= request.description %></p>
                 </div>
               </div>
-            </div>
+            <!-- </div> -->
 
+          <% end %>
           </div>
       </div>
-    <% end %>
   </div>
 </div>
