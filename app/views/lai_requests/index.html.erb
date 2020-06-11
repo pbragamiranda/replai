@@ -15,19 +15,22 @@
                       <p>Prazo - <%= request.deadline.strftime("%d/%m/%Y") %></p>
                     <% end %>
 
-                <div style=" text-align:right;">
-                  <% if request.status == "Editando" %>
-                    <% if policy(request).edit? %>
-                      <%= link_to edit_lai_request_path(request), class: "far fa-edit mb-1 mr-2", :style=>"color:blue;" do %>
+                    <% if request.status == "Editando" %>
+                      <% if policy(request).edit? %>
+                        <%= link_to edit_lai_request_path(request), class: "far fa-edit mb-1 mr-2", :style=>"color:blue;" do %>
+                        <% end %>
+                      <% end %>
+                      <% if policy(request).destroy? %>
+                        <%= link_to request, method: :delete, data: { confirm: 'Are you sure?'} do %>
+                          <i class="fas fa-trash-alt" style="color:blue;"></i>
+                        <% end %>
                       <% end %>
                     <% end %>
-                    <% if policy(request).destroy? %>
-                      <%= link_to request, method: :delete, data: { confirm: 'Are you sure?'} do %>
-                        <i class="fas fa-trash-alt" style="color:blue;"></i>
-                      <% end %>
-                    <% end %>
-                  <% end %>
-                </div>
+
+
+
+
+
                   </a>
 
 
