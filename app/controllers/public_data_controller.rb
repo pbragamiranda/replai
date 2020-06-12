@@ -3,12 +3,16 @@ class PublicDataController < ApplicationController
 	before_action :find_public_data, only: [:show]
 
 	def index
+
 		# @public_data = PublicDatum.all.order(created_at: :desc)
     if params[:query].present?
       @public_data = PublicDatum.search_by_name_category_description(params[:query]).order(created_at: :desc)
     else
       @public_data = PublicDatum.all.order(created_at: :desc)
     end
+    @public_data = @public_data.where(category: params[:category]) if params[:category]
+    @public_data = @public_data.where(city: params[:city]) if params[:city]
+    @public_data = @public_data.where(power: params[:power]) if params[:power]
 	end
 
 	def show

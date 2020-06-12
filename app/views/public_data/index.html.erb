@@ -1,35 +1,29 @@
 
-<div class="filter-bar" style="padding:8px 0px;">
-  <% if @public_data.empty? %>
-  <p>Não há resultados para: "<%= params[:query] %>"</p>
-  <% elsif params[:query]%>
-  <p>Resultados para: "<%= params[:query] %>"</p>
-  <% else %>
-  <p></p>
-  <div class="search-bar d-flex mt-3">
-  <%= form_tag public_data_path, method: :get do %>
-  <%= text_field_tag :query, params[:query], class: "form-control input", placeholder: "Qual dado público você busca?" %>
-  <% end %>
-  <%= submit_tag "Pesquisar", class: "btn btn-primary" %>
-</div>
+
+<div class="search-bar mt-3">
+  <%= form_tag public_data_path, method: :get, class: "d-flex" do %>
+    <%= text_field_tag :query, params[:query], class: "form-control input", placeholder: "Qual dado público você busca?" %>
+    <%= submit_tag "Pesquisar", class: "btn btn-primary" %>
   <% end %>
 </div>
 
-<div class="container-public-datum">
-  <div class="public-datum">
-   <% @public_data.each do |dataset| %>
-   <div class="card-product rounded mb-3">
-
-    <!-- <img src="https://via.placeholder.com/30" alt=""> -->
-    <div class="data-card">
-      <%= link_to public_datum_path(dataset) do %>
-      <h2><%= dataset.name %></h2>
-      <p><%= dataset.category %></p>
-      <% end %>
+<% @public_data.each do |public_datum| %>
+  <!-- <div class='dashboard-card'> -->
+  <div class="card-custom">
+    <div class="card-custom-header d-flex align-items-center">
+      <h3><%= public_datum.name %></h3>
+      <div class="badges">
+        <span class="badge badge-warning">
+          <%= link_to public_datum.city, public_data_path(city: public_datum.city), class: "badge-custom"  %></span>
+        <span class="badge badge-success">
+          <%= link_to public_datum.category, public_data_path(category: public_datum.category), class: "badge-custom"  %></span>
+        <span class="badge badge-dark">
+          <%= link_to public_datum.power, public_data_path(power: public_datum.power), class: "badge-custom"  %></span>
+      </div>
+    </div>
+    <div class="card-custom-body">
+      <p><%= public_datum.description %></p>
     </div>
   </div>
-  <% end %>
-</div>
-</div>
-
-
+  <!-- </div> -->
+<% end %>

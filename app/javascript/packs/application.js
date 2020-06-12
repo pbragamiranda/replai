@@ -17,10 +17,10 @@ require("turbolinks").start()
 
 document.addEventListener('turbolinks:load', () => {
   // Call your JS functions here
-  loadDynamicBannerText();
-  initUpdateNavbarOnScroll();
-  loadHighlightText();
-  generateBranchDropDown();
-  initModal();
+  // loadDynamicBannerText();
+  // initUpdateNavbarOnScroll();
+  // loadHighlightText();
+  // generateBranchDropDown();
+  // initModal();
 });
 
