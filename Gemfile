@@ -9,6 +9,7 @@ gem 'puma'
 gem 'rails', '6.0.3.1'
 gem 'redis'
 gem 'pg_search', '~> 2.3.0'
+gem 'turbolinks'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.12.0'
