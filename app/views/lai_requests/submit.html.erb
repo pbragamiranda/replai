@@ -6,7 +6,7 @@
     <button class="btn btn-primary btn-lg no-print" id="printPageButton" onClick="window.print();">Print</button>
 
   </div>
-  <h2 class="text-center font-weight-bold" style="margin-top: 2em;">PEDIDO DE INFORMAÇÃO CONFORME LEI 12.527</h2>
+  <h2 class="text-center font-weight-bold" style="margin-top: 2em;">PEDIDO DE ACESSO À INFORMAÇÃO CONFORME LEI 12.527 / 2011</h2>
 
   <h3 style="margin-top: 4em;"> <%= @lai_request.branch.city_government_agency.city_name %>, <%= Time.now.strftime("%d/%m/%Y") %> </h3>
   <br>
@@ -28,7 +28,7 @@ Federal e nos artigos 10, 11 e 12 da Lei nº 12.527/2011 à Lei Geral de Acesso 
 
     <h3 class="text-justify" style="text-indent:100px;margin-top: 2em; margin-left: 100px;"><%= @lai_request.description %></h3>
     <br>
-    <h3 class="text-justify"> 2. Em cumprimento ao artigo 11 da Lei nº 12.527, de 18 de novembro de 2011, o acesso às informações requisitadas deve ser imediato. Não sendo possível o acesso imediato, a resposta, em conformidade com o referido artigo, deve ser expedida no prazo máximo de 20 (vinte) dias, contados do protocolo deste Requerimento junto a(o) <span class="font-weight-bold"> <%= @lai_request.branch.branch_name %> - <%= @lai_request.branch.city_government_agency.city_name %></span>. Para o recebimento da resposta, comunico o seguinte endereço <span class="font-weight-bold">pedido@replai.org</span>.</h3>
+    <h3 class="text-justify"> 2. Em cumprimento ao artigo 11 da Lei nº 12.527, de 18 de novembro de 2011, o acesso às informações requisitadas deve ser imediato. Não sendo possível o acesso imediato, a resposta, em conformidade com o referido artigo, deve ser expedida no prazo máximo de 20 (vinte) dias, contados do protocolo deste Requerimento junto a(o) <span class="font-weight-bold"> <%= @lai_request.branch.branch_name %> - <%= @lai_request.branch.city_government_agency.city_name %></span>. Para o recebimento da resposta, comunico o seguinte endereço <span class="font-weight-bold"><%= @lai_request.user.email %></span>.</h3>
 <br>
 
 

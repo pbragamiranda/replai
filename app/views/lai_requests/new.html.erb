@@ -1,5 +1,5 @@
 <div class="container-form">
-  <h1>Crie seu pedido de acesso à informação</h1>
+  <h1>Crie seu Pedido de Acesso à Informação</h1>
 
     <%= simple_form_for @lai_request,
         wrapper: :vertical_form,
@@ -18,7 +18,7 @@
                   :hint => "Seja  breve e preciso. Ex: 'Valor Diárias Vereadores Mangaratiba' " %>
       <%= f.input :description,
                   label: "Descrição",
-                  :hint => "Adicione uma breve descrição. Ex: 'Diárias pagas a vereadores em decorrência de eventos institucionais realizados nos últimos 3 anos'" %>
+                  :hint => "Adicione uma descrição bastante precisa, citando conteúdo, periodicidade e formatação dos dados que deseja. Ex: 'Diárias pagas a vereadores em decorrência de eventos institucionais realizados dos anos de 2017-2019, separados em coluno por nome dos vereadores, valor pago e data do pagamento." %>
       <%= f.input :category,
                   label: "Categoria",
                   collection: LaiRequest::CATEGORIES %>
