@@ -1,6 +1,6 @@
 <div class="container-form">
   <h1>Compartilhe Dados Públicos</h1>
-  
+
     <%= simple_form_for @public_datum,
         wrapper: :vertical_form,
         wrapper_mappings: {
@@ -45,26 +45,3 @@
       </div>
     <% end %>
 </div>
-    <%#= f.association :branch, label_method: :branch_name, value_method: :id, label: "Orgão"%>
-      <!-- <p class="custom_label">Esfera</p>
-    <%#= f.input :city ,
-                  label: "Município" %>
-      <%#= f.input :state,
-                  label: "Estado" %> -->
-
-      <%#= f.collection_radio_buttons :level,
-                                     [['Municipal', 'Municipal'],
-                                     ['Estadual', 'Estadual'],
-                                     ['Federal', 'Federal']],
-                                     :first, :last,
-                                     wrapper_html: { class: 'btn btn-primary' },
-                                     item_wrapper_class: :block_radio_button_collection %>
-      <p class="custom_label">Poder</p>
-      <%#= f.collection_radio_buttons :power,
-                                      [['Executivo', 'Executivo'],
-                                      ['Legislativo', 'Legislativo'],
-                                      ['Judiciário', 'Judiciário']],
-                                      :first, :last,
-                                      input_html: { class: 'btn btn-primary' },
-                                      item_wrapper_class: :block_radio_button_collection %>
-                                      

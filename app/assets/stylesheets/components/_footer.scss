@@ -4,15 +4,17 @@ html {
 }
 body {
   /* Margin bottom by footer height */
-  // margin-bottom: 60px;
+  // margin-bottom: 100px;
 }
 .footer {
   position: absolute;
+  bottom:0;
+  // margin-top: 60px;
   width: 100%;
   // display: flex;
   /* Set the fixed height of the footer here */
-  height: 200px;
-  line-height: 60px; /* Vertically center the text there */
+  // height: auto;
+  line-height: 40px; /* Vertically center the text there */
   background-color: #363434;
   background-size: cover;
   text-align: center;
@@ -45,4 +47,8 @@ body {
 .footer-logo img {
   width: 50px;
   // padding-left: 0;
+}
+
+.footer-compensation {
+  margin-bottom: 180px;
 }
