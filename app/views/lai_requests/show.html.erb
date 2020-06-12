@@ -1,24 +1,24 @@
 <div class="container-form">
   <div class="lai-request">
 
-    <div style=" text-align:right;">
+    <div style="text-align:right;">
       <% if @lai_request.status == "Editando" %>
         <% if policy(@lai_request).edit? %>
-          <%= link_to edit_lai_request_path(@lai_request), class: "far fa-edit mb-1 mr-2", :style=>"color:white;" do %>
+          <%= link_to edit_lai_request_path(@lai_request), class: "far fa-edit mb-1 mr-2", :style=>"color:black;" do %>
           <% end %>
         <% end %>
         <% if policy(@lai_request).destroy? %>
           <%= link_to @lai_request, method: :delete, data: { confirm: 'Are you sure?'} do %>
-            <i class="fas fa-trash-alt" style="color:white;"></i>
+            <i class="fas fa-trash-alt" style="color:black;"></i>
           <% end %>
         <% end %>
       <% end %>
     </div>
 
     <% if @lai_request.status == "Editando" %>
-      <h1 class="text-center" style="padding-top:16px;">Seu LAIRequest: revise antes de enviar</h1>
+      <h2 class="text-center bold">Revise seu pedido de acesso à informação antes de enviar</h2>
     <% else %>
-      <h1 class="text-center" style="padding-top:16px;">Esse é seu LAIRequest enviado</h1>
+      <h2 class="text-center">Esse é seu seu pedido de acesso à informação enviado</h2>
     <% end %>
 
     <h2>Solicitação: <%= @lai_request.title %></h2>
@@ -28,14 +28,13 @@
     <% unless @lai_request.status == "Editando" %>
       <h3>Prazo: <%= @lai_request.deadline.strftime("%d/%m/%Y") %></h3>
     <% end %>
-
+    
+    <h3>Descrição do pedido:</h3>
+    <p ><%= @lai_request.description %></p>
 
     <h3>Município: <%= @lai_request.branch.city_government_agency.city_name%></h3>
     <h3>Orgão: <%= @lai_request.branch.branch_name  %> </h3>
-    <h3>Formato do arquivo: <%= @lai_request.format %></h3>
-
-    <h3>Descrição do pedido:</h3>
-    <p style="padding-bottom: 16px;"><%= @lai_request.description %></p>
+    <h3 style="padding-bottom: 16px;">Formato do arquivo: <%= @lai_request.format %></h3>
 
     <div style="display:flex;  justify-content: space-between;">
       <div style="text-align: left; font-size:32px; color: white;">
