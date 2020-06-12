@@ -49,6 +49,8 @@ class LaiRequestsController < ApplicationController
       @lai_request.status = "Enviado"
       if @lai_request.save!
         render :submit
+        send_lai_request(@lai_request.id)
+        send_confirmation_email(current_user.id, @lai_request.id)
         if @lai_request.branch.twitter.nil?
           send_tweet(@lai_request.branch.city_government_agency.city_name)
         else
@@ -68,5 +70,13 @@ class LaiRequestsController < ApplicationController
   def set_lai_request
     @lai_request = LaiRequest.find(params[:id])
     authorize @lai_request
+  end
+
+  def send_confirmation_email(user_id, lai_request_id)
+    RequestConfirmationMailer.confirmation(user_id, lai_request_id).deliver_now
+  end
+
+  def send_lai_request(lai_request_id)
+    RequestConfirmationMailer.send_request(lai_request_id).deliver_now
   end
 end

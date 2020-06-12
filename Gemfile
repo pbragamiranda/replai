@@ -19,6 +19,7 @@ gem 'webpacker'
 gem 'pundit'
 gem 'twitter'
 gem 'activestorage-validator'
+gem 'letter_opener', group: :development
 
 group :development do
   gem 'web-console', '>= 3.3.0'
