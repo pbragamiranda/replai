@@ -2,14 +2,12 @@
   	<div class="container-banner">
 	    <h1>Transparência com os dados públicos </h1>
 	    <h1>é <span id="banner-typed-text"></span></h1>
-	    <p class="mt-3">incentivando a participação cívica e o acesso a informação através da LAI.</p>
-      <div class="search-bar d-flex mt-3">
-        <%= form_tag public_data_path, method: :get do %>
-            <%= text_field_tag :query, params[:query], class: "form-control input", placeholder: "Qual dado público você busca?" %>
+	    <p class="mt-3">Incentivando a participação cívica através da LAI</p>
+      <div class="search-bar mt-3">
+        <%= form_tag public_data_path, method: :get, class: "d-flex justify-content-center" do %>
+          <%= text_field_tag :query, params[:query], class: "form-control input", placeholder: "Qual dado público você busca?" %>
+          <%= submit_tag "Pesquisar", class: "btn btn-primary" %>
         <% end %>
-        <%= submit_tag "Pesquisar", class: "btn btn-primary" %>
       </div>
    	</div>
-
  </div>
-

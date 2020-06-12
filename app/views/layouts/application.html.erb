@@ -33,7 +33,9 @@
   <%= render 'shared/navbar' %>
   <%= render 'shared/flashes' %>
   <%= yield %>
-  <%= render "shared/footer"%>
+  <div class="footer-compensation">
+    <%= render "shared/footer"%>
+  </div>
   <% else %>
   <%= yield %>
   <% end %>

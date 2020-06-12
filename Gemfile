@@ -9,6 +9,7 @@ gem 'puma'
 gem 'rails', '6.0.3.1'
 gem 'redis'
 gem 'pg_search', '~> 2.3.0'
+gem 'turbolinks'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.12.0'
@@ -19,6 +20,7 @@ gem 'webpacker'
 gem 'pundit'
 gem 'twitter'
 gem 'activestorage-validator'
+gem 'letter_opener', group: :development
 
 group :development do
   gem 'web-console', '>= 3.3.0'

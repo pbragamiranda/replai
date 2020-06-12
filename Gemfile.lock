@@ -110,6 +110,10 @@ GEM
       concurrent-ruby (~> 1.0)
     jbuilder (2.10.0)
       activesupport (>= 5.0.0)
+    launchy (2.5.0)
+      addressable (~> 2.7)
+    letter_opener (1.7.0)
+      launchy (~> 2.2)
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -217,6 +221,9 @@ GEM
     thor (1.0.1)
     thread_safe (0.3.6)
     tilt (2.0.10)
+    turbolinks (5.2.1)
+      turbolinks-source (~> 5.2)
+    turbolinks-source (5.2.0)
     twitter (7.0.0)
       addressable (~> 2.3)
       buftok (~> 0.2.0)
@@ -263,6 +270,7 @@ DEPENDENCIES
   dotenv-rails
   font-awesome-sass (~> 5.12.0)
   jbuilder (~> 2.0)
+  letter_opener
   listen (~> 3.0.5)
   pg (~> 0.21)
   pg_search (~> 2.3.0)
@@ -276,6 +284,7 @@ DEPENDENCIES
   simple_form
   spring
   spring-watcher-listen (~> 2.0.0)
+  turbolinks
   twitter
   uglifier
   web-console (>= 3.3.0)
