@@ -3,24 +3,30 @@
   <div class="search-bar mt-3">
     <%= form_tag public_data_path, method: :get, class: "d-flex justify-content-center" do %>
       <%= text_field_tag :query, params[:query], class: "form-control input", placeholder: "Qual dado público você busca?" %>
+      <%#= select_tag "city_id", options_from_collection_for_select(@cities, "id", "city_name"), prompt: "Cidade" %>
+      <%= select_tag "city", options_for_select(@cities, params[:city]), prompt: "Cidade" %>
+      <%= select_tag "power", options_for_select(PublicDatum::POWERS, params[:power]), prompt: "Poder" %>
       <%= submit_tag "Pesquisar", class: "btn btn-primary" %>
     <% end %>
   </div>
 
-  <% @public_data.each do |public_datum| %>
-    <!-- <div class='dashboard-card'> -->
-    <div class="card-public-data ">
-        <h3><%= public_datum.name %></h3>
-        <p><%= public_datum.description %></p>
-        <div class="badges">
-          <span class="badge badge-warning">
-            <%= link_to public_datum.city, public_data_path(city: public_datum.city), class: "badge-custom"  %></span>
-          <span class="badge badge-success">
-            <%= link_to public_datum.category, public_data_path(category: public_datum.category), class: "badge-custom"  %></span>
-          <span class="badge badge-dark">
-            <%= link_to public_datum.power, public_data_path(power: public_datum.power), class: "badge-custom"  %></span>
-        </div>
-    </div>
-    <!-- </div> -->
+  <% if @public_data.any? %>
+    <% @public_data.each do |public_datum| %>
+      <div class="card-public-data ">
+          <h3><%= public_datum.name %></h3>
+          <p><%= public_datum.description %></p>
+          <div class="badges">
+            <span class="badge badge-warning">
+              <%= link_to public_datum.city, public_data_path(city: public_datum.city), class: "badge-custom"  %></span>
+            <span class="badge badge-success">
+              <%= link_to public_datum.category, public_data_path(category: public_datum.category), class: "badge-custom"  %></span>
+            <span class="badge badge-dark">
+              <%= link_to public_datum.power, public_data_path(power: public_datum.power), class: "badge-custom"  %></span>
+          </div>
+      </div>
+    <% end %>
+  <% else %>
+    <h3>Sua pesquisa não retornou dados</h3>
   <% end %>
+
 </div>
