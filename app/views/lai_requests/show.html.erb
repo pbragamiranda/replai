@@ -1,40 +1,29 @@
 <div class="container-form">
   <div class="lai-request">
-
-    <div style="text-align:right;">
-      <% if @lai_request.status == "Editando" %>
-        <% if policy(@lai_request).edit? %>
-          <%= link_to edit_lai_request_path(@lai_request), class: "far fa-edit mb-1 mr-2", :style=>"color:black;" do %>
-          <% end %>
-        <% end %>
-        <% if policy(@lai_request).destroy? %>
-          <%= link_to @lai_request, method: :delete, data: { confirm: 'Are you sure?'} do %>
-            <i class="fas fa-trash-alt" style="color:black;"></i>
-          <% end %>
-        <% end %>
-      <% end %>
-    </div>
-
+    <h2><%= @lai_request.title %></h2>
     <% if @lai_request.status == "Editando" %>
-      <h2 class="text-center bold">Revise seu pedido de acesso à informação antes de enviar</h2>
+    <div class="alert-lai">
+      <strong>Revise</strong> seu pedido de acesso à informação antes de enviar.
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    </div>
     <% else %>
-      <h2 class="text-center">Esse é seu seu pedido de acesso à informação enviado</h2>
+    <div class="alert-lai">
+      Esse é seu seu pedido de acesso à informação enviado.
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    </div>
     <% end %>
 
-    <h2>Solicitação: <%= @lai_request.title %></h2>
-    <br>
-
-    <h3>Status: <%= @lai_request.status %></h3>
+    <h3><span class="badge badge-pill badge-secondary">Status:</span>    <%= @lai_request.status %></h3>
     <% unless @lai_request.status == "Editando" %>
-      <h3>Prazo: <%= @lai_request.deadline.strftime("%d/%m/%Y") %></h3>
+      <h3><span class="badge badge-pill badge-secondary">Prazo:</span>   <%= @lai_request.deadline.strftime("%d/%m/%Y") %></h3>
     <% end %>
     
-    <h3>Descrição do pedido:</h3>
+    <h3><span class="badge badge-pill badge-secondary">Descrição do pedido:</span></h3>
     <p ><%= @lai_request.description %></p>
 
-    <h3>Município: <%= @lai_request.branch.city_government_agency.city_name%></h3>
-    <h3>Orgão: <%= @lai_request.branch.branch_name  %> </h3>
-    <h3 style="padding-bottom: 16px;">Formato do arquivo: <%= @lai_request.format %></h3>
+    <h3><span class="badge badge-pill badge-secondary">Município:</span>   <%=@lai_request.branch.city_government_agency.city_name%></h3>
+    <h3><span class="badge badge-pill badge-secondary">Órgão:</span>   <%= @lai_request.branch.branch_name  %> </h3>
+    <h3 style="padding-bottom: 16px;"><span class="badge badge-pill badge-secondary">Formato:</span>    <%= @lai_request.format %></h3>
 
     <div style="display:flex;  justify-content: space-between;">
       <div style="text-align: left; font-size:32px; color: white;">
@@ -44,6 +33,17 @@
 
       </div>
       <div style= "text-align: right">
+        <% if @lai_request.status == "Editando" %>
+        <% if policy(@lai_request).edit? %>
+          <% if policy(@lai_request).destroy? %>
+          <%= link_to @lai_request, method: :delete, data: { confirm: 'Are you sure?'} do %>
+            <i class="fas fa-trash-alt" style="color:black;"></i>
+          <% end %>
+          <%= link_to edit_lai_request_path(@lai_request), class: "far fa-edit mb-1 mr-2", :style=>"color:black;" do %>
+          <% end %>
+        <% end %>
+        <% end %>
+      <% end %>
         <% if @lai_request.status == "Editando" %>
           <%= link_to submit_lai_request_path, method: :patch, class: "btn btn-primary btn-lg no-print" do %>
             Envie sua solicitação
