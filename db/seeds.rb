@@ -108,5 +108,10 @@ end
 #sic@prefeituradebelfordroxo.rj.gov.br
 
 
-# 
+# Legislação referente ao IFRJ-Belford Roxo
 
+# 	1) Lei Municipal Nº 1.479, de 2013 
+#   2) Lei Municipal Nº 1.520, de 2014
+#   3) Lei municipal Nº 1.607, de 09 de junho de 2020
+
+# Movimento de Educação Popular Emancipa
