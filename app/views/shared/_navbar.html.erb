@@ -1,9 +1,9 @@
 <div class="nav-block">
   <div class="navbar navbar-replai">
     <%= link_to root_path, class: "navbar-brand" do %>
-      <%= image_tag "logo.png" %>
+    <%= image_tag "logo.png" %>
     <% end %>
-      <ul class="navbar-menu">
+    <ul class="navbar-menu">
           <!-- <li>
             <%= link_to "Inicio", "#", class: "nav-link" %>
           </li> -->
@@ -22,10 +22,21 @@
           <li>
             <%= link_to "Meus pedidos", lai_requests_path, class: "nav-link" %>
           </li>
-          <!-- <li>
-          <i class="fas fa-search fas-7px"></i>
-        </li> -->
-      </ul>
-    <!-- </div> -->
+        </ul>
+        <% if user_signed_in? %>
+        <li class="nav-item dropdown" style="list-style: none;">
+          <!-- <h5>Olá, <%= current_user.first_name %>! </h5> -->
+          <%= link_to "Sair", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+        </div>
+      </li>
+      <% else %>
+      <li class="nav-item" style="list-style: none;">
+        <%= link_to "Entrar", new_user_session_path, class: "nav-link btn-login" %>
+      </li>
+      <% end %>
+    </div>
   </div>
-</div>
+
+
+
+
