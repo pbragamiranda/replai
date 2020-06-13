@@ -5,56 +5,57 @@
     <div class="col-12">
       <div id="accordion">
         <% @lai_requests.each_with_index do |request, index| %>
-          <div class="card mb-1">
+          <div class="card mb-1 card-style">
             <div class="card-header" id="heading<%= index.to_s%>">
-              <a class="" data-toggle="collapse" data-target="#collapse<%= index.to_s  %>" aria-expanded="false" aria-controls="collapse<%= index.to_s %>">
+              <div class="request-js p-3" data-toggle="collapse" data-target="#collapse<%= index.to_s  %>" aria-expanded="false" aria-controls="collapse<%= index.to_s %>">
                 <div>
-                  <% unless request.deadline %>
-                    <p>Revise antes de enviar!</p>
-                  <% end %>
-                  <%= request.title.truncate(70).capitalize %>
-                  <% if request.deadline %>
-                    <p>Prazo - <%= request.deadline.strftime("%d/%m/%Y") %></p>
-                  <% end %>
-
-                  <div class="d-flex align-items-center justify-content-end pt-3">
-                    <% if request.status == "Editando" %>
-                      <% if policy(request).edit? %>
-                        <%= link_to edit_lai_request_path(request), class: "far fa-edit mb-1 mr-2 primary", :style=>"" do %>
-                        <% end %>
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <% unless request.deadline %>
+                        <p>Revise antes de enviar!</p>
                       <% end %>
-
-                      <% if policy(request).destroy? %>
-                        <%= link_to request, method: :delete, data: { confirm: 'Are you sure?'} do %>
-                          <i class="fas fa-trash-alt primary" style=""></i>
-                        <% end %>
+                     <p><%= request.title.truncate(70).capitalize %></p>
+                      <% if request.deadline %>
+                        <p>Prazo - <%= request.deadline.strftime("%d/%m/%Y") %></p>
                       <% end %>
-                    <% end %>
+                    </div>
+
+                    <i class="icon-js fas fa-chevron-down"></i>
                   </div>
+
+<!--                   <div class="d-flex align-items-center justify-content-end pt-3">
+                    <#% if request.status == "Editando" %>
+                      <#% if policy(request).edit? %>
+                        <#%= link_to edit_lai_request_path(request), class: "far fa-edit mb-1 mr-2 primary", :style=>"" do %>
+                        <#% end %>
+                      <#% end %>
+
+                      <#% if policy(request).destroy? %>
+                        <#%= link_to request, method: :delete, data: { confirm: 'Are you sure?'} do %>
+                          <i class="fas fa-trash-alt primary" style=""></i>
+                        <#% end %>
+                      <#% end %>
+                    <#% end %>
+                  </div> -->
 
                 </div>
 
-              </a>
+              </div>
             </div>
 
             <div id="collapse<%= index.to_s  %>" class="<%= index == 0 ? "collapse show" : "collapse" %>" aria-labelledby="heading<%= index.to_s %>" data-parent="#accordion">
               <div class="card-body">
-                <p><span style="font-weight: bold;">Categoria:</span> <%= request.category %></p>
-                <p><span style="font-weight: bold;">Status:</span> <%= request.status %></p>
                 <p><span style="font-weight: bold;">Município:</span> <%= request.branch.city_government_agency.city_name %></p>
                 <p><span style="font-weight: bold;">Orgão:</span> <%= request.branch.branch_name %></p>
+                <p><span style="font-weight: bold;">Categoria:</span> <%= request.category %></p>
+                <p><span style="font-weight: bold;">Status:</span> <%= request.status %></p>
                 <p><span style="font-weight: bold;">Formato do arquivo:</span> <%= request.format %></p>
                 <p><span style="font-weight: bold;">Descrição:</span> <%= request.description %></p>
                 <div style= "text-align: right">
-                  <% if request.status == "Editando" %>
-                    <%= link_to submit_lai_request_path, method: :patch, class: "btn btn-primary btn-lg no-print" do %>
-                      Envie sua solicitação
+
+                    <%= link_to lai_request_path(request), class: "btn btn-primary btn-lg no-print" do %>
+                      Ver solicitação
                     <% end %>
-                  <% else %>
-                    <%= link_to submit_lai_request_path( view: 'visualizar' ), class: "btn btn-primary btn-lg no-print" do %>
-                      Ver minha solicitação
-                    <% end %>
-                  <% end %>
                 </div>
               </div>
             </div>

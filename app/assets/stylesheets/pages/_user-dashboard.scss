@@ -8,6 +8,10 @@
   padding: 4px 12px;
 }
 
+.card-style {
+  font-family: "Work Sans", "Helvetica", "sans-serif";
+}
+
 .dashboard-card {
   display: flex;
   flex-direction: column;
@@ -76,4 +80,10 @@
 
 .lai-content{
 
+}
+
+.request-js{
+  &:hover{
+    cursor: pointer;
+  }
 }

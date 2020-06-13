@@ -5,6 +5,7 @@ import { initUpdateNavbarOnScroll } from '../components/navbar';
 import { loadDynamicBannerText } from '../components/banner';
 import { generateBranchDropDown } from '../components/lai-form';
 import { initModal } from '../components/init_modal';
+import { toggleRequestArrow } from '../components/toggle-request-arrow';
 
 
 require("@rails/ujs").start()
@@ -22,5 +23,6 @@ document.addEventListener('turbolinks:load', () => {
   loadHighlightText();
   generateBranchDropDown();
   initModal();
+  toggleRequestArrow();
 });
 
