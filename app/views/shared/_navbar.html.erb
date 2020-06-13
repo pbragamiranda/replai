@@ -26,12 +26,12 @@
         <% if user_signed_in? %>
         <li class="nav-item dropdown" style="list-style: none;">
           <!-- <h5>Olá, <%= current_user.first_name %>! </h5> -->
-          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          <%= link_to "Sair", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
         </div>
       </li>
       <% else %>
       <li class="nav-item" style="list-style: none;">
-        <%= link_to "Login", new_user_session_path, class: "nav-link btn-login" %>
+        <%= link_to "Entrar", new_user_session_path, class: "nav-link btn-login" %>
       </li>
       <% end %>
     </div>
