@@ -1,4 +1,4 @@
-.container-user-dashboard {
+.user-dashboard {
   color: black;
   background-color: white;
   // padding: 40px 250px;
@@ -6,6 +6,10 @@
 
 .dashboard-head{
   padding: 4px 12px;
+}
+
+.card-style {
+  font-family: "Work Sans", "Helvetica", "sans-serif";
 }
 
 .dashboard-card {
@@ -17,7 +21,7 @@
   box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3);
   margin: 3px auto;
   padding: 30px 60px;
-  width: 700px;
+  // width: 700px;
   text-decoration: none;
   color: white;
   border-radius: 4px;
@@ -54,7 +58,7 @@
 .hvr-grow:hover,
 .hvr-grow:focus,
 .hvr-grow:active {
-    transform: scale(1.04);
+  transform: scale(1.04);
 }
 
 .icons{
@@ -76,4 +80,10 @@
 
 .lai-content{
 
+}
+
+.request-js{
+  &:hover{
+    cursor: pointer;
+  }
 }
