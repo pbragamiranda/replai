@@ -25,7 +25,7 @@
         </ul>
         <% if user_signed_in? %>
         <li class="nav-item dropdown" style="list-style: none;">
-          <!-- <h5>Olá, <%= current_user.first_name %>! </h5> -->
+          <h5>Olá, <%= current_user.first_name %>! </h5>
           <%= link_to "Sair", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
         </div>
       </li>
