@@ -18,4 +18,5 @@ class PublicDatum < ApplicationRecord
   attr_accessor :city_government_agency_id
 
   POWERS = [ "Legislativo", "Executivo" ]
+  CATEGORIES = [ "Transparência", "Financeira", "Saúde", "Educação", "Infraestrutura", "Segurança" ]
 end
