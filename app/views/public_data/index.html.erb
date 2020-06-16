@@ -4,10 +4,10 @@
     <%= form_tag public_data_path, method: :get, class: "d-flex justify-content-center" do %>
       <%= text_field_tag :query, params[:query], class: "form-control input", placeholder: "Qual dado público você busca?" %>
       <%#= select_tag "city_id", options_from_collection_for_select(@cities, "id", "city_name"), prompt: "Cidade" %>
-      <%= submit_tag "Pesquisar", class: "btn btn-primary" %>
       <%= select_tag "city", options_for_select(@cities, params[:city]), prompt: "Cidade" %>
       <%= select_tag "power", options_for_select(PublicDatum::POWERS, params[:power]), prompt: "Poder" %>
       <%= select_tag "category", options_for_select(PublicDatum::CATEGORIES, params[:category]), prompt: "Categoria" %>
+      <%= submit_tag "Pesquisar", class: "btn btn-primary" %>
     <% end %>
   </div>
 
