@@ -13,7 +13,7 @@
   <% if @public_data.any? %>
     <% @public_data.each do |public_datum| %>
       <div class="card-public-data ">
-          <h3><%= public_datum.name %></h3>
+          <h3><%= link_to public_datum.name, public_datum_path(public_datum) %></h3>
           <p><%= public_datum.description %></p>
           <div class="badges">
             <span class="badge badge-warning">
