@@ -4,8 +4,8 @@ const toggleRequestArrow = () => {
     requestCards.forEach((card) => {
       card.addEventListener("click", (event) => {
         const icon = card.querySelector(".icon-js");
-        icon.classList.toggle("fa-chevron-up");
         icon.classList.toggle("fa-chevron-down");
+        icon.classList.toggle("fa-chevron-up");
       })
     })
   }

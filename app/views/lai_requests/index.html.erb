@@ -19,8 +19,11 @@
                         <p>Prazo - <%= request.deadline.strftime("%d/%m/%Y") %></p>
                       <% end %>
                     </div>
-
-                    <i class="icon-js fas fa-chevron-down"></i>
+                    <% if  index == 0 %>
+                      <i class="icon-js fas fa-chevron-up"></i>
+                    <% else %>
+                      <i class="icon-js fas fa-chevron-down"></i>
+                    <% end %>
                   </div>
 
 <!--                   <div class="d-flex align-items-center justify-content-end pt-3">
