@@ -16,4 +16,7 @@ class PublicDatum < ApplicationRecord
       tsearch: { prefix: true, any_word: true} # <-- now `superman batm` will return something!
     }
   attr_accessor :city_government_agency_id
+
+  POWERS = [ "Legislativo", "Executivo" ]
+  CATEGORIES = [ "Transparência", "Financeira", "Saúde", "Educação", "Infraestrutura", "Segurança" ]
 end
