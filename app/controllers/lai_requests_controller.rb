@@ -4,7 +4,7 @@ class LaiRequestsController < ApplicationController
   include ApplicationHelper
 
   def index
-    @lai_requests = LaiRequest.all.order(created_at: :desc)
+    @lai_requests = LaiRequest.where(user_id: current_user).order(created_at: :desc)
   end
 
   def new
