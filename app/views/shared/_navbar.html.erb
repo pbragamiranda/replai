@@ -1,41 +1,43 @@
 <div class="nav-block">
   <div class="navbar navbar-replai">
     <%= link_to root_path, class: "navbar-brand" do %>
-    <%= image_tag "logo.png" %>
+      <%= image_tag "logo.png" %>
     <% end %>
     <ul class="navbar-menu">
-          <!-- <li>
-            <%= link_to "Inicio", "#", class: "nav-link" %>
-          </li> -->
-          <li>
-            <%= link_to "Sobre a LAI", sobre_a_lai_path, class: "nav-link" %>
-          </li>
-          <li>
-            <%= link_to "Pesquisar dados", public_data_path, class: "nav-link" %>
-          </li>
-          <li>
-            <%= link_to "Compartilhar dados", new_public_datum_path, class: "nav-link" %>
-          </li>
-          <li>
-            <%= link_to "Criar pedido LAI", new_lai_request_path, class: "nav-link" %>
-          </li>
-          <li>
-            <%= link_to "Meus pedidos", lai_requests_path, class: "nav-link" %>
-          </li>
-        </ul>
-        <% if user_signed_in? %>
-        <li class="nav-item dropdown" style="list-style: none;">
-          <h5>Olá, <%= current_user.first_name %>! </h5>
-          <%= link_to "Sair", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-        </div>
+      <li>
+        <%= link_to "Sobre a LAI", sobre_a_lai_path, class: "nav-link" %>
       </li>
-      <% else %>
-      <li class="nav-item" style="list-style: none;">
-        <%= link_to "Entrar", new_user_session_path, class: "nav-link btn-login" %>
+      <li>
+        <%= link_to "Pesquisar dados", public_data_path, class: "nav-link" %>
       </li>
-      <% end %>
-    </div>
+      <li>
+        <%= link_to "Compartilhar dados", new_public_datum_path, class: "nav-link" %>
+      </li>
+      <li>
+        <%= link_to "Criar pedido LAI", new_lai_request_path, class: "nav-link" %>
+      </li>
+      <li>
+        <%= link_to "Meus pedidos", lai_requests_path, class: "nav-link" %>
+      </li>
+    </ul>
+    <% if user_signed_in? %>
+      <ul class="navbar-menu" style="list-style: none;">
+        <li class="nav-link">
+          <p style="margin:0px; font-family: 'Work Sans', 'Helvetica', 'sans-serif'">Olá, <%= current_user.first_name %>!</p>
+        </li>
+        <li>
+          <%= link_to "Sair", destroy_user_session_path, method: :delete, class: "nav-link" %>
+        </li>
+      </ul>
+    <% else %>
+      <div class="navbar-menu" style="list-style: none;">
+        <li>
+          <%= link_to "Entrar", new_user_session_path, class: "nav-link" %>
+        </li>
+      </div>
+    <% end %>
   </div>
+</div>
 
 
 
