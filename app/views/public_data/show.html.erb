@@ -1,21 +1,20 @@
-<div class="container-show">
+<div class="container-index-public-data card-public-data">
 		<h1><%= @public_datum.name %></h1>
-		<h3>Município: <%= @public_datum.city %></h3>
+		<h4><%= @public_datum.city %></h4>
+    <br>
 
-		<br>
-		
-		<p class="category-box"><%= @public_datum.power %></p>
-		<p class="category-box"><%= @public_datum.category %></p>
-		
-
-	
-		<h3>Descrição dos Dados</h3>
 		<p><%= @public_datum.description %></p>
+    <br>
 
-		
+		<!-- <h4>Descrição dos Dados</h4> -->
+			<!-- <p class="category-box"><%#= @public_datum.format %></p> -->
 		<div class= "container-buttons">
-			<p class="category-box"><%= @public_datum.format %></p>
-			<%= link_to "Download dos Dados", "#" , class: "btn btn-primary btn-lg"%>
+      <div class="badges">
+    		<span class="badge badge-warning badge-custom "><%= @public_datum.city %></span>
+    		<span class="badge badge-success badge-custom "><%= @public_datum.category %></span>
+        <span class="badge badge-dark badge-custom "><%= @public_datum.power %></span>
+      </div>
+			<%= link_to "Download", "#" , class: "btn btn-primary"%>
 		</div>
 </div>
 
