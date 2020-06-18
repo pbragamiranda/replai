@@ -14,7 +14,7 @@
   <br>
 
   <% unless @lai_request.anonymity == true %>
-    <h3 class="text-justify" style="text-indent:100px;margin-top: 2em;"> Eu <span class="font-weight-bold"><%= @lai_request.user.first_name %> <%= @lai_request.user.last_name %></span>, inscrito no CPF sob o número <span class="font-weight-bold"><%= @lai_request.user.cpf %></span>, com base no artigo 5º (XXXIII) da Constituição
+    <h3 class="text-justify" style="text-indent:100px;margin-top: 2em;"> Eu, <span class="font-weight-bold"><%= @lai_request.user.first_name %> <%= @lai_request.user.last_name %></span>, inscrito no CPF sob o número <span class="font-weight-bold"><%= @lai_request.user.cpf %></span>, com base no artigo 5º (XXXIII) da Constituição
 Federal e nos artigos 10, 11 e 12 da Lei nº 12.527/2011 à Lei Geral de Acesso a Informações Públicas, dirijo-me respeitosamente a Vossa Senhoria, com o objetivo de apresentar o seguinte:</h3>
     <br>
   <% else %>

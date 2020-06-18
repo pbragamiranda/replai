@@ -20,9 +20,9 @@ class LaiRequestsController < ApplicationController
     @lai_request.user_id = current_user.id
     authorize @lai_request
     if @lai_request.save
-      redirect_to lai_request_path(@lai_request), notice: "Lai Request created!"
+      redirect_to lai_request_path(@lai_request), notice: "Pedido de Acesso à Informação Criado!"
     else
-      render :new, notice: "you missed something"
+      render :new, notice: "Ops! Faltaram algumas Informações."
     end
   end
 
